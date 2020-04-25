@@ -1,0 +1,2423 @@
+<!DOCTYPE HTML>
+<html lang="zh-cn">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="css基础知识总结, liufeng,github">
+    <meta name="description" content="未知全貌，不予置评">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>css基础知识总结 | liufeng</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 4.2.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">liufeng</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="https://liufeng.6666.github.io/aboutme/" target="_blank" rel="noopener">
+          
+          <i class="fas fa-user-secret" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>个人简历</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>联系</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">liufeng</div>
+        <div class="logo-desc">
+            
+            未知全貌，不予置评
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			
+				<i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="https://liufeng.6666.github.io/aboutme/ " target="_blank" rel="noopener" style="margin-left:75px">
+				  
+				   <i class="fa fas fa-user-secret" style="position: absolute;left:50px" ></i>
+			      
+		          <span>个人简历</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			联系
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/22.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">css基础知识总结</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        height: calc(100vh - 250px);
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/css/">
+                                <span class="chip bg-color">css</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/web/" class="post-category">
+                                web
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2020-04-21
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p><a href="http://css.cuishifeng.cn/" target="_blank" rel="noopener">css查询文档</a></p>
+<h1>css简介</h1>
+<ul>
+<li>CSS 指层叠样式表 (Cascading Style Sheets)</li>
+<li>样式定义如何显示 HTML 元素</li>
+<li>样式通常存储在样式表中</li>
+<li>把样式添加到 HTML 4.0 中，是为了解决内容与表现分离的问题</li>
+<li>外部样式表可以极大提高工作效率</li>
+<li>外部样式表通常存储在 CSS 文件中</li>
+<li>多个样式定义可层叠为一</li>
+</ul>
+<blockquote>
+<p><strong>注意</strong>：样式通常保存在外部的 .css 文件中。通过仅仅编辑一个简单的 CSS 文档，外部样式表使你有能力同时改变站点中所有页面的布局和外观。</p>
+</blockquote>
+<h2 id="1-引用方式">1.引用方式</h2>
+<h3 id="1-1-内联样式表">1.1 内联样式表</h3>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;utf-8&quot;&gt; 
+&lt;title&gt;菜鸟教程(runoob.com)&lt;/title&gt; 
+&lt;/head&gt;
+&lt;body style=&quot;background-color:#b0c4de;&quot;&gt;
+	&lt;h1&gt;我的 CSS web 页!&lt;/h1&gt;
+	&lt;p&gt;你好世界！这是来自 runoob 菜鸟教程的实例。&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<h3 id="1-2-内部样式表">1.2 内部样式表</h3>
+<blockquote>
+<p>内部样式，指的就是把CSS代码和HTML代码放在同一个文件中，其中CSS代码放在<code>&lt;style&gt;&lt;style/&gt;</code>标签对内。并且<code>&lt;style&gt;</code>标签是放在<code>&lt;head&gt;</code>标签内的。</p>
+</blockquote>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;utf-8&quot;&gt; 
+&lt;title&gt;菜鸟教程(runoob.com)&lt;/title&gt; 
+&lt;style&gt;
+body {
+	background-color:#b0c4de;
+}
+&lt;/style&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+	&lt;h1&gt;我的 CSS web 页!&lt;/h1&gt;
+	&lt;p&gt;你好世界！这是来自 runoob 菜鸟教程的实例。&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+
+</code></pre>
+<h3 id="1-3-外部样式">1.3 外部样式</h3>
+<blockquote>
+<p>所谓的“外部样式表”，就是把CSS代码和HTML代码都单独放在不同文件中，然后在HTML文档中使用link标签来引用CSS样式表。</p>
+</blockquote>
+<ul>
+<li><strong>mystyle.css文件:</strong></li>
+</ul>
+<pre class=" language-language-body"><code class="language-language-body">	background-color:#b0c4de;
+}
+</code></pre>
+<ul>
+<li><strong>html页面</strong></li>
+</ul>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;utf-8&quot;&gt; 
+&lt;title&gt;菜鸟教程(runoob.com)&lt;/title&gt; 
+&lt;!-- 在HTML页面中引用文件名为newfile的css文件 --&gt;
+&lt;link type=&quot;text/css&quot; rel=&quot;stylesheet&quot; href=&quot;mystyle.css&quot;/&gt;
+&lt;/head&gt;
+&lt;body&gt;
+	&lt;h1&gt;我的 CSS web 页!&lt;/h1&gt;
+	&lt;p&gt;你好世界！这是来自 runoob 菜鸟教程的实例。&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<h3 id="1-4-多重样式优先级">1.4 多重样式优先级</h3>
+<ul>
+<li>样式表允许以多种方式规定样式信息。样式可以规定在单个的 HTML 元素中，在 HTML 页的头元素中，或在一个外部的 CSS 文件中。甚至可以在同一个 HTML 文档内部引用多个外部样式表。</li>
+<li><strong>一般情况下，优先级如下：</strong><br>
+内联样式）Inline style &gt; （内部样式）Internal style sheet &gt;（外部样式）External style sheet &gt; 浏览器默认样式</li>
+</ul>
+<blockquote>
+<p><strong>注意：</strong> 如果某些属性在不同的样式表中被同样的选择器定义，那么属性值将从更具体的样式表中被继承过来。</p>
+</blockquote>
+<h3 id="1-5-表单样式">1.5 表单样式</h3>
+<pre><code>input[type=&quot;text&quot;]
+{
+    width:150px;
+    display:block;
+    margin-bottom:10px;
+    background-color:yellow;
+}
+input[type=&quot;button&quot;]
+{
+    width:120px;
+    margin-left:35px;
+    display:block;
+}
+</code></pre>
+<h2 id="2-选择器">2.选择器</h2>
+<p><strong>css规则</strong></p>
+<pre><code>CSS 规则由两个主要的部分构成：选择器，以及一条或多条声明:  
+
+选择器 {
+    样式属性1:取值1;
+    样式属性2:取值2;
+    …… 
+</code></pre>
+<p><strong>css 注释</strong></p>
+<blockquote>
+<p>以&quot; /<code>*</code>&quot; 开始, 以 &quot;<code>*</code>/ &quot;结束:</p>
+</blockquote>
+<pre><code>/*这是个注释*/
+p{
+	text-align:center;
+	/*这是另一个注释*/
+	color:black;
+	font-family:arial;
+}
+</code></pre>
+<p><strong>css选择器</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">选择器</th>
+<th style="text-align:center">HTML属性</th>
+<th style="text-align:center">css</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">id选择器</td>
+<td style="text-align:center">id</td>
+<td style="text-align:center">#</td>
+</tr>
+<tr>
+<td style="text-align:center">class选择器</td>
+<td style="text-align:center">class</td>
+<td style="text-align:center">.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>id 选择器</strong></p>
+<pre><code>&lt;body&gt;
+	&lt;p id=&quot;para1&quot;&gt;Hello World!&lt;/p&gt;
+	&lt;p&gt;这个段落不受该样式的影响。&lt;/p&gt;
+&lt;/body&gt;
+</code></pre>
+<pre><code>#para1
+{
+    text-align:center;
+    color:red;
+}
+</code></pre>
+<p><strong>class 选择器</strong></p>
+<pre><code>/*所有拥有 center 类的 HTML 元素均为居中*/
+.center {text-align:center;}
+/*所有的 p 元素使用 class=&quot;center&quot; 让该元素的文本居中:*/
+p.center {text-align:center}
+</code></pre>
+<p><strong>此外，需要注意一下：</strong></p>
+<blockquote>
+<p>一个标签可以同时定义多个class；<br>
+id也可以写成name，区别在于name是HTML中的标准，而id是XHTML中的标准，现在网页的标准都是使用id，所以大家尽量不要用name属性；</p>
+</blockquote>
+<h3 id="2-1-标签选择器">2.1 标签选择器</h3>
+<pre><code>// 标签即HTML标签，比如body,div,p等
+div{text-align:center;}
+</code></pre>
+<h3 id="2-2-属性选择器">2.2 属性选择器</h3>
+<pre><code>/*把包含标题（title）的所有元素变为蓝色*/
+[title]
+{
+    color:blue;
+}
+</code></pre>
+<h3 id="2-3-属性和值选择器">2.3 属性和值选择器</h3>
+<p><strong>示例一：</strong></p>
+<pre><code>/*标题title='runoob'元素的边框样式*/
+[title=runoob]
+{
+    border:5px solid green;
+}
+</code></pre>
+<p><strong>示例二</strong>：</p>
+<pre><code>/*匹配到下文中的第三个div元素*/
+div[title=&quot;height&quot;]{
+    width:100px;
+    height:100px;
+    margin-top:2px;
+    background:pink;&lt;br&gt;
+}
+</code></pre>
+<pre><code>&lt;body&gt;
+    &lt;div title=&quot;width&quot;&gt;&lt;/div&gt;
+    &lt;div&gt;&lt;/div&gt;
+    &lt;div title=&quot;height&quot;&gt;&lt;/div&gt;
+&lt;/body&gt;
+</code></pre>
+<h3 id="2-4-属性和值的选择器-多值">2.4 属性和值的选择器 - 多值</h3>
+<pre><code>/*指定值的title属性的元素样式的例子，使用（~）分隔属性和值:*/
+[title~=hello] { color:blue; }
+/*适用如下：*/
+&lt;h1 title=&quot;hello world&quot;&gt;Hello world&lt;/h1&gt;
+&lt;p title=&quot;student hello&quot;&gt;Hello CSS students!&lt;/p&gt;
+
+/*指定值的lang属性的元素样式的例子，使用（|）分隔属性和值*/
+[lang|=en] { color:blue; }
+/*适用如下：*/
+&lt;p lang=&quot;en&quot;&gt;Hello!&lt;/p&gt;
+&lt;p lang=&quot;en-us&quot;&gt;Hi!&lt;/p&gt;
+&lt;p lang=&quot;en-gb&quot;&gt;Ello!&lt;/p&gt;
+</code></pre>
+<h3 id="2-5-子选择器">2.5 子选择器</h3>
+<blockquote>
+<ul>
+<li>子元素选择器，就是选中某个元素下的子元素(包括子、孙)，然后对该子元素设置CSS样式。<br>
+<strong>说明：</strong><br>
+父元素与子元素必须用空格隔开，从而表示选中某个元素下的子元素。</li>
+</ul>
+</blockquote>
+<p><strong>语法：</strong></p>
+<pre><code>父选择器 子元素选择{
+    样式属性1:取值1;
+    样式属性2:取值2;
+    ……
+}
+</code></pre>
+<h3 id="2-6-相邻选择器">2.6 相邻选择器</h3>
+<blockquote>
+<p>相邻选择器，就是选中该元素的下一个兄弟元素，在这里注意一点，相邻选择器的操作对象是该元素的同级元素。</p>
+</blockquote>
+<p><strong>语法：</strong></p>
+<pre><code>元素A + 元素A相邻兄弟元素{
+    样式属性1:取值1;
+    样式属性2:取值2;
+    ……
+}
+</code></pre>
+<p><strong>示例一：</strong></p>
+<pre><code>&lt;!DOCTYPE html&gt; 
+&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
+&lt;head&gt;
+    &lt;title&gt;&lt;/title&gt;
+    &lt;style type=&quot;text/css&quot;&gt;
+        /*选择“id为lv的元素”的相邻的下一个兄弟元素div，也就是第3个div元素。*/
+        #lv+div{color:red;}
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div&gt;111&lt;/div&gt;
+    &lt;div id=&quot;lv&quot;&gt;
+        &lt;p&gt;222&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div&gt;333&lt;/div&gt;
+    &lt;div&gt;444&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p><strong>示例二：</strong></p>
+<pre><code>/*这个只能选择到下面第二行的那个p元素  最后一个不满足紧接在div元素后面这个条件*/
+div+.box{width:100px; height:100px; background:pink;}
+ 　	&lt;div&gt;&lt;/div&gt;
+    &lt;p class=&quot;box&quot;&gt;&lt;/p&gt;
+    &lt;p class=&quot;box&quot;&gt;&lt;/p&gt;
+    &lt;div&gt;&lt;/div&gt;
+    &lt;p&gt;&lt;/p&gt;
+    &lt;p class=&quot;box&quot;&gt;&lt;/p&gt;
+</code></pre>
+<h3 id="2-7-群组选取">2.7 群组选取</h3>
+<blockquote>
+<ul>
+<li>群组选择器，就是同时对几个选择器进行相同的操作。<br>
+<strong>说明：</strong><br>
+对于群组选择器，两个选择器之间必须用“,”（英文逗号）隔开，不然群组选择器无法生效。</li>
+</ul>
+</blockquote>
+<p><strong>语法：</strong></p>
+<pre><code>选择器A,选择器B,选择器C{
+    样式属性1:取值1;
+    样式属性2:取值2;
+    ……
+}
+</code></pre>
+<p><strong>示例一：</strong></p>
+<pre><code>/*同时匹配到下文中的div标签和id为box的p标签*/
+div,#box{width:100px; height:100px; background:#000;} 
+&lt;div&gt;&lt;/div&gt;
+&lt;p id=&quot;box&quot;&gt;&lt;/p&gt;
+</code></pre>
+<h3 id="2-8-伪类选择器-hover">2.8 伪类选择器(:hover)</h3>
+<blockquote>
+<p>:hover在鼠标移到链接上时添加的特殊样式。<br>
+<strong>提示:</strong> :hover 选择器器可用于所有元素，不仅是链接。</p>
+</blockquote>
+<p><strong>示例一：</strong></p>
+<pre><code>img:hover{border:1px solid gray;}
+</code></pre>
+<h3 id="2-9-CSS-Background-背景">2.9 CSS Background(背景)</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">属性</th>
+<th style="text-align:center">说明</th>
+<th style="text-align:center">示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">background-color</td>
+<td style="text-align:center">背景颜色</td>
+<td style="text-align:center">body {background-color:#b0c4de;}</td>
+</tr>
+<tr>
+<td style="text-align:center">background-image</td>
+<td style="text-align:center">背景图像</td>
+<td style="text-align:center">body {background-image:url(‘paper.gif’);}</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>background-image</strong> 属性描述了元素的背景图像.<br>
+默认情况下，背景图像进行平铺重复显示，以覆盖整个元素实体.</p>
+</blockquote>
+<p><strong>页面背景图片设置实例:</strong></p>
+<pre><code>body {background-image:url('paper.gif');}
+</code></pre>
+<blockquote>
+<p>默认情况下 background-image 属性会在页面的水平或者垂直方向平铺。<br>
+一些图像如果在水平方向与垂直方向平铺，这样看起来很不协调，</p>
+</blockquote>
+<pre><code>body{
+	background-image:url('gradient2.png');
+}
+</code></pre>
+<blockquote>
+<p>如果图像只在水平方向平铺 (repeat-x), 页面背景会更好些:</p>
+</blockquote>
+<pre><code>body{
+	background-image:url('gradient2.png');
+	background-repeat:repeat-x;
+}
+</code></pre>
+<blockquote>
+<p>让背景图像不影响文本的排版（如果你不想让图像平铺，你可以使用</p>
+</blockquote>
+<pre><code>background-repeat属性）:
+body{
+	background-image:url('img_tree.png');
+	background-repeat:no-repeat;
+}
+</code></pre>
+<blockquote>
+<p>以上实例中，背景图像与文本显示在同一个位置，为了让页面排版更加合理，不影响文本的阅读，我们可以改变图像的位置。<br>
+可以利用 background-position 属性改变图像在背景中的位置:</p>
+</blockquote>
+<pre><code>body{
+	background-image:url('img_tree.png');
+	background-repeat:no-repeat;
+	background-position:right top;
+}
+</code></pre>
+<h2 id="3-CSS-Text-文本">3.CSS Text(文本)</h2>
+<h3 id="3-1-文本颜色">3.1 文本颜色</h3>
+<pre><code>/*颜色的名称*/
+body {color: red;}
+/*十六进制值*/
+h1 {color: #00ff00;}
+/*一个RGB值*/
+h2 {color:rgb(255,0,0);}
+</code></pre>
+<h3 id="3-2-字体颜色-color">3.2 字体颜色(color)</h3>
+<pre><code>p {color:red;}
+</code></pre>
+<h3 id="3-3-字体样式-Font">3.3 字体样式(Font)</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">属性</th>
+<th style="text-align:center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">font-family</td>
+<td style="text-align:center">字体类型</td>
+</tr>
+<tr>
+<td style="text-align:center">font-size</td>
+<td style="text-align:center">字体大小</td>
+</tr>
+<tr>
+<td style="text-align:center">font-weight</td>
+<td style="text-align:center">字体粗细</td>
+</tr>
+<tr>
+<td style="text-align:center">font-style</td>
+<td style="text-align:center">字体斜体</td>
+</tr>
+<tr>
+<td style="text-align:center">color</td>
+<td style="text-align:center">颜色</td>
+</tr>
+</tbody>
+</table>
+<h3 id="3-4-字体类型-font-family">3.4 字体类型(font-family)</h3>
+<blockquote>
+<p>默认情况下，浏览器的字体是宋体。中文字体常用的有宋体、微软雅黑，英文字体比较常用的是Times New Roman、Arial。</p>
+</blockquote>
+<h3 id="3-5-字体大小-font-size">3.5 字体大小(font-size)</h3>
+<blockquote>
+<p>font-size的属性值可以有两种方式，一种是使用关键字(实际开发中，比较少使用这种方式来表达字体大小，一般都是采用像素作为单位的数值)；二是使用像素做单位的数值。</p>
+</blockquote>
+<pre><code>p {font-size:15px;}
+</code></pre>
+<blockquote>
+<p>px全称“pixel”（像素）。px就是一张图片中最小的点，或者是计算机屏幕最小的点。</p>
+</blockquote>
+<h3 id="3-6-字体粗细-font-weight">3.6 字体粗细(font-weight)</h3>
+<blockquote>
+<p>字体粗细和字体大小（font-size）是不一样的，粗细指的是字体的“肥胖”，大小指的是高和宽。<br>
+粗细值可以取关键字（常用normal和bold）和100~900的数值（不建议使用数值）。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">font-weight属性值</th>
+<th style="text-align:center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">normal</td>
+<td style="text-align:center">默认值，正常体。相当于数值400</td>
+</tr>
+<tr>
+<td style="text-align:center">lighter</td>
+<td style="text-align:center">较细</td>
+</tr>
+<tr>
+<td style="text-align:center">bold</td>
+<td style="text-align:center">较粗。相当于数值700</td>
+</tr>
+<tr>
+<td style="text-align:center">bolder</td>
+<td style="text-align:center">很粗（其实效果跟bold差不多）</td>
+</tr>
+</tbody>
+</table>
+<h3 id="3-7-字体斜体-font-style">3.7 字体斜体(font-style)</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">font-style属性值</th>
+<th style="text-align:center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">normal</td>
+<td style="text-align:center">默认值，正常体</td>
+</tr>
+<tr>
+<td style="text-align:center">italic</td>
+<td style="text-align:center">斜体，这是一个属性</td>
+</tr>
+<tr>
+<td style="text-align:center">oblique</td>
+<td style="text-align:center">将字体倾斜，将没有斜体变量（italic）的特殊字体，要应用oblique</td>
+</tr>
+</tbody>
+</table>
+<h2 id="4-文本样式-Text">4.文本样式(Text)</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">属性</th>
+<th style="text-align:center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">text-decoration</td>
+<td style="text-align:center">下划线、删除线、顶划线</td>
+</tr>
+<tr>
+<td style="text-align:center">text-transform</td>
+<td style="text-align:center">文本大小写</td>
+</tr>
+<tr>
+<td style="text-align:center">font-varient</td>
+<td style="text-align:center">将英文文本转换为“小型”大写字母</td>
+</tr>
+<tr>
+<td style="text-align:center">text-indent</td>
+<td style="text-align:center">段落首行缩进</td>
+</tr>
+<tr>
+<td style="text-align:center">text-align</td>
+<td style="text-align:center">文本水平对齐方式</td>
+</tr>
+<tr>
+<td style="text-align:center">line-height</td>
+<td style="text-align:center">行高</td>
+</tr>
+<tr>
+<td style="text-align:center">letter-spacing</td>
+<td style="text-align:center">字距</td>
+</tr>
+<tr>
+<td style="text-align:center">word-spacing</td>
+<td style="text-align:center">词距</td>
+</tr>
+</tbody>
+</table>
+<h3 id="4-1-下划线、删除线、顶划线-text-decoration">4.1 下划线、删除线、顶划线(text-decoration)</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">属性值</th>
+<th style="text-align:center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">none</td>
+<td style="text-align:center">默认值，可以用这个属性值也可以去掉已经有下划线或删除线或顶划线的样式</td>
+</tr>
+<tr>
+<td style="text-align:center">underline</td>
+<td style="text-align:center">下划线，在HTML中使用<code>&lt;u&gt;</code>表示。一般用于文章的重点标明。</td>
+</tr>
+<tr>
+<td style="text-align:center">line-through</td>
+<td style="text-align:center">删除线，在HTML中使用<code>&lt;s&gt;</code>表示。一般出现在电子商务网站中用于促销。</td>
+</tr>
+<tr>
+<td style="text-align:center">overline</td>
+<td style="text-align:center">顶划线</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>text-decoration 属性用来设置或删除文本的装饰。<br>
+从设计的角度看 text-decoration属性主要是用来删除链接的下划线：</p>
+</blockquote>
+<pre><code>a {text-decoration:none;}
+/*眉题（上划线）*/
+h1 {text-decoration:overline;}
+/*贯穿线*/
+h1 {text-decoration:line-through;}
+/*下划线*/
+h1 {text-decoration:underline;}
+</code></pre>
+<h3 id="4-2-文本大小写转换-text-transform">4.2 文本大小写转换(text-transform)</h3>
+<blockquote>
+<p>文本转换属性是用来指定在一个文本中的大写和小写字母。<br>
+可用于所有字句变成大写或小写字母，或每个单词的首字母大写。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">属性值</th>
+<th style="text-align:center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">none</td>
+<td style="text-align:center">默认值，无转换发生</td>
+</tr>
+<tr>
+<td style="text-align:center">uppercase</td>
+<td style="text-align:center">转换成大写</td>
+</tr>
+<tr>
+<td style="text-align:center">lowercase</td>
+<td style="text-align:center">转换成小写</td>
+</tr>
+<tr>
+<td style="text-align:center">capitalize</td>
+<td style="text-align:center">将每个英文单词的首字母转换成大写，其余无转换发生</td>
+</tr>
+</tbody>
+</table>
+<pre><code>/*大写字母*/
+p.uppercase {text-transform:uppercase;}
+/*小写字母*/
+p.lowercase {text-transform:lowercase;}
+/*大写字母:首字母大写 This is some text. -- &gt;This Is Some Text. */
+p.capitalize {text-transform:capitalize;}
+</code></pre>
+<h3 id="4-3-文本首行缩进-text-indent">4.3 文本首行缩进(text-indent)</h3>
+<blockquote>
+<p>文本缩进属性是用来指定文本的第一行的缩进。text-indent的属性值应该是字体font-size属性值的两倍。</p>
+</blockquote>
+<pre><code>/*缩进*/
+p {text-indent: 50px}
+</code></pre>
+<h3 id="4-4-文本水平对齐-text-align">4.4 文本水平对齐(text-align)</h3>
+<pre><code>/*默认值，左对齐*/
+p.main {text-align:left;}
+/*居中对齐*/
+body {text-align:center;}
+/*右对齐*/
+p.date {text-align:right;}
+</code></pre>
+<h3 id="4-5-文本行高-text-height">4.5 文本行高(text-height)</h3>
+<blockquote>
+<p>很多书本上称line-height为行间距，这是不严谨的叫法。行高，顾名思义就是“一行的高度”，而行间距指的是“两行文本之间的距离”，大家稍微想一下就知道这是两个不一样的概念。</p>
+</blockquote>
+<pre><code>/*行高度设置*/
+p {text-height: 20px}
+</code></pre>
+<h3 id="4-6-字符间距-letter-spacing">4.6 字符间距(letter-spacing)</h3>
+<blockquote>
+<p>一个中文算一个字，一个英文字母也叫一个字。</p>
+</blockquote>
+<pre><code>&lt;style&gt;
+h1 {letter-spacing:2px;}
+h2 {letter-spacing:-3px;}
+&lt;/style&gt;
+</code></pre>
+<h3 id="4-7字间距-word-spacing">4.7字间距(word-spacing)</h3>
+<blockquote>
+<p>定义词间距，以空格为基准进行调节，如果多个单词被连在一起，则被word-spacing视为一个单词；如果汉字被空格分隔，则分隔的多个汉字就被视为不同的单词，word-spacing属性此时有效。</p>
+</blockquote>
+<pre><code>p { 
+	word-spacing:30px;
+}
+</code></pre>
+<h2 id="5-边框-Border">5.边框(Border)</h2>
+<p><a href="https://www.runoob.com/css/css-border.html" target="_blank" rel="noopener">详见参考</a></p>
+<p><strong>边框样式(border-style)</strong><br>
+<a href="https://www.runoob.com/try/try.php?filename=trycss_border-style" target="_blank" rel="noopener">详见参考</a><br>
+<strong>边框宽度(border-width)</strong><br>
+<a href="https://www.runoob.com/try/try.php?filename=trycss_border-width" target="_blank" rel="noopener">详见参考</a><br>
+<strong>边框颜色(border-color)</strong></p>
+<pre><code>p.one {
+    border-style:solid;
+    border-color:red;
+}
+p.two {
+    border-style:solid;
+    border-color:#98bf21;
+}
+</code></pre>
+<h3 id="5-1-边框简写-border">5.1 边框简写(border)</h3>
+<pre><code>/*正常写法*/
+border-width:5px;
+border-style:solid;
+border-color:red;
+/*简写等效于如上*/
+border:5px solid red;
+</code></pre>
+<blockquote>
+<p>对于border:1px solid gray;这种简洁写法，第一个值指的是框的大小（border-width），第二个值指的是框的样式（border-style），第三个值指的是框的颜色（border-color）。</p>
+</blockquote>
+<h2 id="6-背景-background">6.背景(background)</h2>
+<p><a href="https://www.runoob.com/css/css-background.html" target="_blank" rel="noopener">详见参考</a><br>
+<a href="http://www.lvyestudy.com/les_cj/cj_6.3.aspx" target="_blank" rel="noopener">详见参考</a></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">属性</th>
+<th style="text-align:center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">background-color</td>
+<td style="text-align:center">定义背景颜色</td>
+</tr>
+<tr>
+<td style="text-align:center">background-image</td>
+<td style="text-align:center">定义背景图像的路径</td>
+</tr>
+<tr>
+<td style="text-align:center">background-repeat</td>
+<td style="text-align:center">定义背景图像显示方式，例如纵向平铺、横向平铺</td>
+</tr>
+<tr>
+<td style="text-align:center">background-position</td>
+<td style="text-align:center">定义背景图像在元素哪个位置</td>
+</tr>
+<tr>
+<td style="text-align:center">background-attachment</td>
+<td style="text-align:center">定义背景图像是否随内容而滚动</td>
+</tr>
+</tbody>
+</table>
+<h3 id="6-1-背景颜色-background-color">6.1 背景颜色(background-color)</h3>
+<pre><code>&lt;!DOCTYPE html&gt; 
+&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
+&lt;head&gt;
+    &lt;title&gt;background-color属性&lt;/title&gt;
+    &lt;style type=&quot;text/css&quot;&gt;
+        /*设置所有div元素的共同样式*/
+        div {
+			width:100px;
+			height:60px;
+        }
+        /*设置3个div元素的个别样式*/
+        #div1{background-color:red;}
+        #div2{background-color: #F3DE3F;}
+        #div3{background-color: #0AF7FB;}
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div id=&quot;div1&quot;&gt;背景颜色值为red&lt;/div&gt;
+    &lt;div id=&quot;div2&quot;&gt;背景颜色值为#F3DE3F &lt;/div&gt;
+    &lt;div id=&quot;div3&quot;&gt;背景颜色值为#0AF7FB &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<h3 id="6-2-color和background-color区别">6.2 color和background-color区别</h3>
+<pre><code>#p1 {
+    width:290px;
+    /*指文字颜色*/
+    color:white;
+    /*背景色*/
+    background-color:red;
+}
+</code></pre>
+<h3 id="6-3-背景图像-background-image">6.3 背景图像(background-image)</h3>
+<blockquote>
+<p>默认情况下，背景图像进行平铺重复显示，以覆盖整个元素实体.<br>
+页面背景图片设置实例:</p>
+</blockquote>
+<pre><code>body {background-image:url('paper.gif');}
+</code></pre>
+<blockquote>
+<p>默认情况下 background-image 属性会在页面的水平或者垂直方向平铺。<br>
+一些图像如果在水平方向与垂直方向平铺，这样看起来很不协调，</p>
+</blockquote>
+<pre><code>&lt;style type=&quot;text/css&quot;&gt;
+#div1 {
+    /*给某个元素设置背景图像，元素要有一定的宽度和高度，背景图片才会显示出来。*/
+    width:143px;
+    height:220px;
+    background-image:url(&quot;piece.jpg&quot;);
+}
+&lt;/style&gt;
+</code></pre>
+<h3 id="6-4-图像显示方式-background-repeat">6.4 图像显示方式(background-repeat)</h3>
+<p><a href="http://www.lvyestudy.com/les_cj/cj_6.5.aspx" target="_blank" rel="noopener">详见参考</a></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">属性值</th>
+<th style="text-align:center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">no-repeat</td>
+<td style="text-align:center">表示不平铺</td>
+</tr>
+<tr>
+<td style="text-align:center">repeat</td>
+<td style="text-align:center">默认值，表示在水平方向（x轴）和垂直方向（y轴）同时平铺</td>
+</tr>
+<tr>
+<td style="text-align:center">repeat-x</td>
+<td style="text-align:center">表示在水平方向（x轴）平铺</td>
+</tr>
+<tr>
+<td style="text-align:center">repeat-y</td>
+<td style="text-align:center">表示在垂直方向（y轴）平铺</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>如果图像只在水平方向平铺 (repeat-x), 页面背景会更好些:</p>
+</blockquote>
+<pre><code>body {
+	background-image:url('gradient2.png');
+	background-repeat:repeat-x;
+}
+</code></pre>
+<blockquote>
+<p>让背景图像不影响文本的排版（如果你不想让图像平铺，你可以使用background-repeat 属性）:</p>
+</blockquote>
+<pre><code>
+body{
+	background-image:url('img_tree.png');
+	background-repeat:no-repeat;
+}
+</code></pre>
+<blockquote>
+<p>以上实例中，背景图像与文本显示在同一个位置，为了让页面排版更加合理，不影响文本的阅读，我们可以改变图像的位置。<br>
+可以利用 background-position 属性改变图像在背景中的位置:</p>
+</blockquote>
+<pre><code>body {
+	background-image:url('img_tree.png');
+	background-repeat:no-repeat;
+	background-position:right top;
+}
+</code></pre>
+<h3 id="6-5-背景图像位置-background-position">6.5 背景图像位置(background-position)</h3>
+<blockquote>
+<p>背景位置属性用于设置背景图像的位置，这个属性只能应用于块级元素和替换元素。其中替换元素包括img、input、textarea、select和object。</p>
+</blockquote>
+<pre><code>/**/
+background-positon:像素值/关键字;
+</code></pre>
+<h3 id="6-6-像素值">6.6 像素值</h3>
+<pre><code>&lt;!DOCTYPE html&gt; 
+&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
+&lt;head&gt;
+    &lt;title&gt;background-position属性&lt;/title&gt;
+    &lt;style type=&quot;text/css&quot;&gt;
+        #div1 {
+            width:400px;
+            height:300px;
+            border:1px solid gray;
+            background-image:url(&quot;../App_images/lesson/run_cj/one piece.jpg&quot;);
+            background-repeat:no-repeat;
+            background-position:80px 40px;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div id=&quot;div1&quot;&gt;&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<h3 id="6-7-关键字">6.7 关键字</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">属性值</th>
+<th style="text-align:center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">top left</td>
+<td style="text-align:center">左上</td>
+</tr>
+<tr>
+<td style="text-align:center">top center</td>
+<td style="text-align:center">靠上居中</td>
+</tr>
+<tr>
+<td style="text-align:center">top right</td>
+<td style="text-align:center">右上</td>
+</tr>
+<tr>
+<td style="text-align:center">left center</td>
+<td style="text-align:center">靠左居中</td>
+</tr>
+<tr>
+<td style="text-align:center">center center</td>
+<td style="text-align:center">正中</td>
+</tr>
+<tr>
+<td style="text-align:center">right center</td>
+<td style="text-align:center">靠右居中</td>
+</tr>
+<tr>
+<td style="text-align:center">bottom left</td>
+<td style="text-align:center">左下</td>
+</tr>
+<tr>
+<td style="text-align:center">bottom center</td>
+<td style="text-align:center">靠下居中</td>
+</tr>
+<tr>
+<td style="text-align:center">bottom right</td>
+<td style="text-align:center">右下</td>
+</tr>
+</tbody>
+</table>
+<h3 id="6-8-背景固定样式-background-attachment">6.8 背景固定样式(background-attachment)</h3>
+<blockquote>
+<p>设置背景图像是随对象滚动还是固定不动。</p>
+</blockquote>
+<pre><code>/*scroll表示背景图像随对象滚动而滚动，是默认选项；fixed表示背景图像固定在页面不动，只有其他的内容随滚动条滚动。*/
+background-attachment:scroll/fixed;
+</code></pre>
+<h2 id="7-超链接-Link">7.超链接(Link)</h2>
+<h3 id="7-1-链接样式">7.1 链接样式</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">属性</th>
+<th style="text-align:center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">a:link</td>
+<td style="text-align:center">定义a元素未访问时的样式</td>
+</tr>
+<tr>
+<td style="text-align:center">a:visited</td>
+<td style="text-align:center">定义a元素访问后的样式</td>
+</tr>
+<tr>
+<td style="text-align:center">a:hover</td>
+<td style="text-align:center">定义鼠标经过显示的样式</td>
+</tr>
+<tr>
+<td style="text-align:center">a:active</td>
+<td style="text-align:center">定义鼠标单击激活时的样式</td>
+</tr>
+</tbody>
+</table>
+<pre><code>a:link {color:#000000;}      /* 未访问链接*/
+a:visited {color:#00FF00;}  /* 已访问链接 */
+a:hover {color:#FF00FF;}  /* 鼠标移动到链接上 */
+a:active {color:#0000FF;}  /* 鼠标点击时 */
+/*注意： a:hover 必须在 a:link 和 a:visited 之后，需要严格按顺序才能看到效果。*/
+/*注意： a:active 必须在 a:hover 之后。*/
+</code></pre>
+<h3 id="7-2-文本修饰">7.2 文本修饰</h3>
+<pre><code>/*text-decoration 属性主要用于删除链接中的下划线：*/
+a:link {text-decoration:none;}
+a:visited {text-decoration:none;}
+a:hover {text-decoration:underline;}
+a:active {text-decoration:underline;}
+</code></pre>
+<h3 id="7-3-背景颜色">7.3 背景颜色</h3>
+<pre><code>a:link {background-color:#B2FF99;}
+a:visited {background-color:#FFFF85;}
+a:hover {background-color:#FF704D;}
+a:active {background-color:#FF704D;}
+</code></pre>
+<h2 id="8-图片样式">8.图片样式</h2>
+<h3 id="8-1-图片大小">8.1 图片大小</h3>
+<pre><code>/*语法*/
+width:像素值;
+height:像素值;
+</code></pre>
+<h3 id="8-2-图片边框-border">8.2 图片边框(border)</h3>
+<pre><code>/*语法*/
+border-width:像素值;
+border-style:属性值
+border-color:颜色值
+/*如上简写*/
+border:1px solid red;
+</code></pre>
+<h3 id="8-3-图片水平对齐-text-align">8.3 图片水平对齐(text-align)</h3>
+<blockquote>
+<p>text-align一般只用在两个地方：文本水平对齐和图片水平对齐。也就是说，text-align只对文本和img标签有效，对其他标签无效。</p>
+</blockquote>
+<pre><code>&lt;!DOCTYPE html&gt; 
+&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
+&lt;head&gt;
+    &lt;title&gt;图片水平对齐&lt;/title&gt;
+    &lt;style type=&quot;text/css&quot;&gt;
+        div
+        {
+            width:300px;
+            height:80px;
+            border:1px solid gray;
+        }
+        .div_img1{text-align:left;}
+        .div_img2{text-align:center;}
+        .div_img3{text-align:right;}
+        img{width:60px;height:60px;}
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div class=&quot;div_img1&quot;&gt;
+        &lt;img src=&quot;../App_images/lesson/run_cj/cartoongirl.gif&quot; alt=&quot;&quot;/&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;div_img2&quot;&gt;
+        &lt;img src=&quot;../App_images/lesson/run_cj/cartoongirl.gif&quot; alt=&quot;&quot;/&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;div_img3&quot;&gt;
+        &lt;img src=&quot;../App_images/lesson/run_cj/cartoongirl.gif&quot; alt=&quot;&quot;/&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<h3 id="8-4-图片垂直对齐-vertical-align">8.4 图片垂直对齐(vertical-align)</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">vertical-align属性取值</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">top</td>
+<td style="text-align:left">顶部对齐</td>
+</tr>
+<tr>
+<td style="text-align:center">middle</td>
+<td style="text-align:left">中部对齐</td>
+</tr>
+<tr>
+<td style="text-align:center">baseline</td>
+<td style="text-align:left">基线对齐</td>
+</tr>
+<tr>
+<td style="text-align:center">bottom</td>
+<td style="text-align:left">底部对齐</td>
+</tr>
+</tbody>
+</table>
+<h3 id="8-5-文字环绕-float">8.5 文字环绕(float)</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">loat属性值</th>
+<th style="text-align:center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">left</td>
+<td style="text-align:center">元素向左浮动</td>
+</tr>
+<tr>
+<td style="text-align:center">right</td>
+<td style="text-align:center">元素向右浮动</td>
+</tr>
+</tbody>
+</table>
+<h3 id="8-6-设置图片与文字的间距-margin">8.6 设置图片与文字的间距(margin)</h3>
+<pre><code>/*上外边距*/
+margin-top:像素值;
+/*下外边距*/
+margin-bottom:像素值;
+/*左外边距*/
+margin-left:像素值;
+/*右外边距*/
+margin-right:像素值;
+</code></pre>
+<h2 id="9-列表样式-list-style">9.列表样式(list style)</h2>
+<h3 id="9-1-列表项符号-list-style-type">9.1 列表项符号(list-style-type)</h3>
+<pre><code>/*语法*/
+list-style-type:属性值;
+/*去除列表项符号*/
+list-style-type:none;
+</code></pre>
+<h3 id="9-2-有序列表-ul">9.2 有序列表(ul)</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">list-style-type属性值</th>
+<th style="text-align:center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">decimal</td>
+<td style="text-align:center">默认值，数字1、2、3……</td>
+</tr>
+<tr>
+<td style="text-align:center">lower-roman</td>
+<td style="text-align:center">小写罗马数字i、ii、iii……</td>
+</tr>
+<tr>
+<td style="text-align:center">upper-roman</td>
+<td style="text-align:center">大写罗马数字I、II、III……</td>
+</tr>
+<tr>
+<td style="text-align:center">lower-alpha</td>
+<td style="text-align:center">小写英文字母a、b、c……</td>
+</tr>
+<tr>
+<td style="text-align:center">upper-alpha</td>
+<td style="text-align:center">大写英文字母A、B、C……</td>
+</tr>
+</tbody>
+</table>
+<h3 id="9-3-无序列表-ul">9.3 无序列表(ul)</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">list-style-type属性值</th>
+<th style="text-align:center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">disc</td>
+<td style="text-align:center">默认值，实心圆“●”</td>
+</tr>
+<tr>
+<td style="text-align:center">circle</td>
+<td style="text-align:center">空心圆“○”</td>
+</tr>
+<tr>
+<td style="text-align:center">square</td>
+<td style="text-align:center">实心正方形“■”</td>
+</tr>
+</tbody>
+</table>
+<h3 id="9-4-自定义列表项符号-list-style-image">9.4 自定义列表项符号(list-style-image)</h3>
+<blockquote>
+<p>不管有序列表还是无序列表，都有他们自身的列表项符号。但默认的列表符号都比较丑。使用自定义列表项符号。</p>
+</blockquote>
+<pre><code>/*语法*/
+list-style-image:url(图像地址);
+</code></pre>
+<h2 id="10-表格样式">10.表格样式()</h2>
+<h3 id="10-1-表格边框合并-border-collapse">10.1 表格边框合并(border-collapse)</h3>
+<blockquote>
+<p>表格特有的属性。除了表格，其他地方用不上。<br>
+只需要在<code>&lt;table&gt;</code>元素中设置border-collapse属性值就行，没必要在<code>&lt;th&gt;、&lt;td&gt;</code>这些元素也设置，造成代码冗余。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">border-collapse属性值</th>
+<th style="text-align:center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">separate</td>
+<td style="text-align:center">默认值，边框分开，不合并</td>
+</tr>
+<tr>
+<td style="text-align:center">collapse</td>
+<td style="text-align:center">边框合并，如果相邻，则共用一个边框</td>
+</tr>
+</tbody>
+</table>
+<h3 id="10-2-表格边框间距-border-spacing">10.2 表格边框间距(border-spacing)</h3>
+<pre><code>/*语法*/
+border-spacing:像素值;
+/*定义了单元格之间水平方向的间距为5px，垂直方向的间距为10px。*/
+{border-spacing:5px 10px}
+</code></pre>
+<h3 id="10-3-表格标题位置-caption-side">10.3 表格标题位置(caption-side)</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">caption-side属性值</th>
+<th style="text-align:center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">top</td>
+<td style="text-align:center">默认值，标题在顶部</td>
+</tr>
+<tr>
+<td style="text-align:center">bottom</td>
+<td style="text-align:center">标题在底部</td>
+</tr>
+</tbody>
+</table>
+<h3 id="10-4-盒子模型-Box-Model">10.4 盒子模型(Box Model)</h3>
+<p><a href="https://www.runoob.com/css/css-boxmodel.html" target="_blank" rel="noopener">详见参考</a><br>
+<a href="http://www.lvyestudy.com/les_cj/cj_11.1.aspx" target="_blank" rel="noopener">详见参考</a></p>
+<blockquote>
+<p>所有HTML元素可以看作盒子，在CSS中，&quot;box model&quot;这一术语是用来设计和布局时使用。<br>
+CSS盒模型本质上是一个盒子，封装周围的HTML元素，它包括：边距，边框，填充，和实际内容。<br>
+盒模型允许我们在其它元素和周围元素边框之间的空间放置元素。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">属性</th>
+<th style="text-align:center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">border</td>
+<td style="text-align:center">（边框）元素边框</td>
+</tr>
+<tr>
+<td style="text-align:center">margin</td>
+<td style="text-align:center">（外边距）用于定义页面中元素与元素之间的距离</td>
+</tr>
+<tr>
+<td style="text-align:center">padding</td>
+<td style="text-align:center">（内边距）用于定义内容与边框之间的距离</td>
+</tr>
+<tr>
+<td style="text-align:center">content</td>
+<td style="text-align:center">（内容）可以是文字或图片</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Margin(外边距) - 清除边框外的区域，外边距是透明的。</li>
+<li>Border(边框) - 围绕在内边距和内容外的边框。</li>
+<li>Padding(内边距) - 清除内容周围的区域，内边距是透明的。</li>
+<li>Content(内容) - 盒子的内容，显示文本和图像。</li>
+</ul>
+<h3 id="10-5-元素的宽度和高度">10.5 元素的宽度和高度</h3>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;utf-8&quot;&gt; 
+&lt;title&gt;菜鸟教程(runoob.com)&lt;/title&gt;
+&lt;style&gt;
+div {
+    /*背景颜色*/
+    background-color: lightgrey;
+    /*宽*/
+    width: 300px;
+    /*边框：宽度25px;样式实线;颜色green;*/
+    border: 25px solid green;
+    /*内容与边框之间的距离*/
+    padding: 25px;
+    /*元素与元素之间的距离*/
+    margin: 25px;
+}
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;h2&gt;盒子模型演示&lt;/h2&gt;
+
+&lt;p&gt;CSS盒模型本质上是一个盒子，封装周围的HTML元素，它包括：边距，边框，填充，和实际内容。&lt;/p&gt;
+
+&lt;div&gt;这里是盒子内的实际内容。有 25px 内间距，25px 外间距、25px 绿色边框。&lt;/div&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<h3 id="10-6-内边距-padding">10.6 内边距(padding)</h3>
+<pre><code>/*语法*/
+padding-top:像素值;
+padding-right:像素值;
+padding-bottom:像素值;
+padding-left:像素值;
+
+/*简洁写法*/
+padding:像素值;
+padding:像素值1 像素值2;
+padding:像素值1 像素值2 像素值3 像素值4;
+
+/*表示四个方向的内边距都是20px*/
+padding:20px;
+
+/*表示padding-top和padding-bottom为20px，padding-right和padding-left为40px。*/
+padding:20px 40px;
+
+/*表示padding-top为20px，padding-right为40px，padding-bottom为60px，padding-left为80px。大家按照顺时针方向记忆就可以了。*/
+padding:20px 40px 60px 80px;
+</code></pre>
+<h3 id="10-7-外边距-margin">10.7 外边距(margin)</h3>
+<pre><code>/*语法*/
+margin-top:像素值;
+margin-right:像素值;
+margin-bottom:像素值;
+margin-left:像素值;
+
+/*简洁写法*/
+margin:像素值;
+margin:像素值1 像素值2;
+margin:像素值1 像素值2 像素值3 像素值4;
+
+/*表示四个方向的外边距都是20px*/
+margin:20px;
+
+/*表示margin-top和margin-bottom为20px，margin-right和margin-left为40px。*/
+margin:20px 40px;
+
+/*表示margin-top为20px，margin-right为40px，margin-bottom为60px，margin-left为80px。大家按照顺时针方向记忆就可以了。*/
+margin:20px 40px 60px 80px;
+</code></pre>
+<h3 id="10-8-浮动布局">10.8 浮动布局</h3>
+<h3 id="10-9-定位布局-Position">10.9 定位布局(Position)</h3>
+<blockquote>
+<p>浮动布局比较灵活，但是不容易控制。而定位布局的出现，使得用户精准定位页面中的任意元素成为可能，使得网页布局变得更加随心所欲。当然由于定位布局缺乏灵活性，也给空间大小和位置不确定的版面布局带来困惑。<br>
+定位的方法有很多种，它们分别是固定定位（fixed）、相对定位（relative）、绝对定位（absolute）和静态定位（static）。</p>
+</blockquote>
+<p><strong>position 属性的五个值：</strong></p>
+<ul>
+<li>static</li>
+<li>相对定位(relative)</li>
+<li>固定定位(fixed)</li>
+<li>绝对定位(absolute)</li>
+<li>sticky</li>
+</ul>
+<h3 id="11-固定定位-fixed">11.固定定位(fixed)</h3>
+<pre><code>/*语法*/
+position:fixed;
+top:像素值;
+bottom;像素值;
+left:像素值;
+right:像素值;
+/*position:fixed;”是结合top、bottom、left和right这4个属性一起使用的，其中“position:fixed;”使得元素成为固定定位元素，接着使用top、bottom、left和right这4个属性来设置元素相对浏览器的位置。*/
+</code></pre>
+<h3 id="11-1-相对定位-relative">11.1 相对定位(relative)</h3>
+<pre><code>/*语法*/
+position:relative;
+top:像素值;
+bottom:像素值;
+left:像素值;
+right:像素值;
+/*“position:relative;”是结合top、bottom、left和right这4个属性一起使用的，其中“position:relative;”使得元素成为相对定位元素，接着使用top、bottom、left和right这4个属性来设置元素相对原始位置。相对定位的容器浮上来后，其所占的位置仍然留有空位，后面的无定位元素仍然不会“挤上来”。*/
+</code></pre>
+<h3 id="11-2-绝对定位-absolute">11.2 绝对定位(absolute)</h3>
+<blockquote>
+<p>绝对定位在几种定位方法中使用最广泛，这种方法能够很精确地把元素移动到任意你想要的位置。<br>
+一个元素变成了绝对定位元素，这个元素就完全脱离正常文档流了，绝对定位元素的前面或者后面的元素会认为这个元素并不存在，即这个元素浮于其他元素上面，它是独立出来的。</p>
+</blockquote>
+<pre><code>/*语法*/
+position:absolute;
+top:像素值;
+bottom:像素值;
+left:像素值;
+right:像素值;
+</code></pre>
+<h3 id="11-3-静态定位-static">11.3 静态定位(static)</h3>
+<blockquote>
+<p>如果没有指定元素的position属性值，也就是默认情况下，元素是静态定位。只要是支持position属性的html对象都是默认为static。static是position属性的默认值，它表示块保留在原本应该在的位置，不会重新定位。<br>
+说白了，平常我们根本就用不到“position:static”，不过呢，如果有时候我们使用javascript来控制元素定位的时候，如果想要使得其他定位方式的元素变成静态定位，就要使用“position:static;”来实现。<br>
+在CSS入门阶段，大家只需要深入学习固定定位（fixed）、相对定位（relative）和绝对定位（absolute）就已经可以走得很远了。</p>
+</blockquote>
+
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://liufeng6666.github.io" rel="external nofollow noreferrer">興仰</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://liufeng6666.github.io/2020/04/21/css%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/">https://liufeng6666.github.io/2020/04/21/css%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="https://liufeng6666.github.io" target="_blank">興仰</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/css/">
+                                    <span class="chip bg-color">css</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2020/04/23/C%E8%AF%AD%E8%A8%80%E7%9F%A5%E8%AF%86%E7%82%B9/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="C语言知识点">
+                        
+                        <span class="card-title">C语言知识点</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            C语言知识点
+总体上必须清楚的:
+
+(1)程序结构是三种:  顺序结构 、选择结构(分支结构)、循环结构。
+(2)读程序都要从main()入口, 然后从最上面顺序往下读(碰到循环做循环,碰到选择做选择)，有且只有一个main函数。
+(3)计
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-04-23
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/C%E8%AF%AD%E8%A8%80/" class="post-category">
+                                    C语言
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/C%E8%AF%AD%E8%A8%80/">
+                        <span class="chip bg-color">C语言</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2020/04/20/html%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="html基础知识总结">
+                        
+                        <span class="card-title">html基础知识总结</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            一、HTML的历史
+    HTML,超文本标记语言，英文全称是Hyper Text Markup Language，由Tim Berners-Lee在1982年提出，它是互联网上应用最广泛的标记语言。
+1.HTML发展过程
+
+HTML（第
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-20
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/web/" class="post-category">
+                                    web
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/html/">
+                        <span class="chip bg-color">html</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+<style type="text/css">
+code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
+</style>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="399111177"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            <span id="year">2020</span>
+            <a href="https://liufeng6666.github.io" target="_blank">興仰</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:1948920683@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1948920683" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1948920683" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/search.xml", 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+    
+    <!--动态线条背景-->
+<script type="text/javascript"
+color="122 103 238" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js">
+</script>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/z16.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true,"react":{"opacity":0.7}}});</script></body>
+
+</html>
