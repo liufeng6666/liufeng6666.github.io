@@ -1,0 +1,2688 @@
+<!DOCTYPE HTML>
+<html lang="zh-cn">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="sql数据库原理与设计, liufeng,github">
+    <meta name="description" content="未知全貌，不予置评">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>sql数据库原理与设计 | liufeng</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 4.2.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">liufeng</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="https://liufeng.6666.github.io/aboutme/" target="_blank" rel="noopener">
+          
+          <i class="fas fa-user-secret" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>个人简历</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>联系</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">liufeng</div>
+        <div class="logo-desc">
+            
+            未知全貌，不予置评
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			
+				<i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="https://liufeng.6666.github.io/aboutme/ " target="_blank" rel="noopener" style="margin-left:75px">
+				  
+				   <i class="fa fas fa-user-secret" style="position: absolute;left:50px" ></i>
+			      
+		          <span>个人简历</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			联系
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/13.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">sql数据库原理与设计</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        height: calc(100vh - 250px);
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/sql/">
+                                <span class="chip bg-color">sql</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AE%BE%E8%AE%A1/" class="post-category">
+                                数据库设计
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2020-04-25
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="第一章-设计数据库">第一章 设计数据库</h2>
+<h3 id="center-1-1-课程要求-center"><center>1.1 课程要求<center></h3>
+<p>1、掌握数据库基础知识。</p>
+<p>2、熟练掌握sql语句的书写。</p>
+<p>3、能用SQL server 2012进行数据库设计。</p>
+<h3 id="center-1-2-数据库基础知识-center"><center>1.2 数据库基础知识</center></h3>
+<p>1、数据库的地位</p>
+<ol>
+<li>
+<p>数据库技术产生于六十年代末，是数据管理的最新技术，是计算机科学的重要分支。</p>
+</li>
+<li>
+<p>数据库技术是信息系统的核心和基础，它的出现极大地促进了计算机应用向各行各业的渗透。</p>
+</li>
+<li>
+<p>数据库的建设规模、数据库信息量的大小和使用频度已成为衡量一个国家信息化程度的重要标志。</p>
+</li>
+</ol>
+<p>2、《数据库原理与设计》课程地位</p>
+<p><img src="https://p.ananas.chaoxing.com/star3/origin/98288c90fde430e8a25df5b0dff375d9.png" alt=""><br>
+3、数据库技术的产生与发展<br>
+<img src="https://p.ananas.chaoxing.com/star3/origin/79fcedaaf62c6d37d10771aa41529ea8.png" alt=""><br>
+4、在数据管理技术的发展过程中，经历了人工管理阶段、文件系统阶段和数据库系统阶段。在这几个阶段中，数据独立性最高的是<font color="red"><b>数据库系统</b></font>阶段。<br>
+5、数据库系统一般由<font color="red"><b>数据库、应用系统、数据库管理系统、数据库管理员</b></font>和<font color="red"><b>用户</b></font>构成。</p>
+<h3 id="center-1-3-数据库应用-center"><center>1.3 数据库应用</center></h3>
+<p><strong>1、数据库应用</strong></p>
+<blockquote>
+<p>数据库的应用已越来越广泛。从小型的单项事务处理系统到大型复杂的信息系统大都用先进的数据库技术来保持系统数据的整体性、完整性和共享性。</p>
+</blockquote>
+<p><font color="red"><b>举例：</b></font><br>
+<font color="greng"><b>(1)电脑抽奖</b></font>：采用数据库技术，不必修改程序，只变更奖项设置，即可应用于不同的抽奖活动。<br>
+<font color="greng"><b>(2)招生考试</b></font>：通过对数据库排序和索引，完成考生按志愿从高分到低分排序，根据学校招生计划录取，录满为止。<br>
+<font color="greng"><b>(3)银行储存</b></font>：为每个用户建立能够唯一识别的账户，同时记录用户的往来明细，做到储存量大，运算速度快，准确程度高。</p>
+<p><strong>2、数据库的结构</strong></p>
+<blockquote>
+<p>数据库系统的结构——<font color="red"><b>三级模式</b></font>与<font color="red"><b>二级印象</b></font></p>
+</blockquote>
+<p>(1)<font color="red"><b>内模式</b></font>也称存储模式数据库物理结构和存储方式的描述，它定义所有内部记录类型、索引和文件的组织形式，以及数据控制方面的细节，<font color="red"><b>一个数据库只有一个内模式。</b></font><br>
+(2)<font color="red"><b>外模式</b></font>,也称子模式或用户模式<br>
+数据库用户（包括应用程序员和最终用户）能够看见和使用的局部数据的逻辑结构和特征的描述，是数据库用户的数据视图，是与某一应用相关的数据的逻辑表示。<br>
+(3)<font color="red"><b>模式</b></font>,也称逻辑模式或概念模式<br>
+对数据库中全局数据逻辑结构的描述，是全体用户公共的数据视图。这种描述是一种抽象描述，不涉及具体硬件环境与平台。</p>
+<p><font color="red"><strong>两级映像：</strong></font></p>
+<p>(1)<font color="red"><b>外模式/模式映像</b></font><br>
+数据库的每一个外模式都有一个外模式/模式映 像<br>
+为了保证数据的逻辑独立性，应用程序一般是依据 模式编写的，因此应用程序也不必修改。</p>
+<p>(2)<font color="red"><b>模式/内模式映像</b></font><br>
+模式/内模式映像是唯一的<br>
+为了保证数据的物理独立性，当数据库的存储结构 改变时，由数据库管理员对模式/内模式映像做 相应改变，可以使模式保持不变，应用程序也不必改变。</p>
+<p><strong>3、<font color="red">数据模型</font></strong></p>
+<blockquote>
+<p>1、<font color="red"><b>数据模型的三要:</b></font><br>
+数据模型是对数据特征的抽象，是严格 定义的概念集合。数据模型包括数据库数据的结 构部分、数据库数据的操作部分和数据库数据的 约束条件。</p>
+</blockquote>
+<p>即数据模型所描述的三个部分：<br>
+(1)<font color="red"><b>数据结构</b></font>	<br>
+(2)<font color="red"><b>数据操作</b></font>	<br>
+基本的数据操作包括两大类：<br>
+<font color="red"><b>检索</b></font>：数据查询<br>
+<font color="red"><b>更新</b></font>：数据的插入、删除和更新等操作<br>
+(3)<font color="red"><b>数据的完整性约束</b></font></p>
+<ul>
+<li>
+<p>在数据库中用<font color="red"><b>数据模型</b></font>的概念描述数据库的结 构与语意。通俗地讲数据模型就是现实世界的 模拟。</p>
+</li>
+<li>
+<p>数据模型应满足三方面要求：	<br>
+-能比较<font color="red"><b>真实</b></font>地模拟现实世界<br>
+-容<font color="red"><b>易</b></font>为人所<font color="red"><b>理解</b></font><br>
+-便于在计算机上<font color="red"><b>实现</b></font></p>
+</li>
+<li>
+<p>模型分为两个不同的层次</p>
+</li>
+</ul>
+<ol>
+<li><font color="red"><b>概念模型</b></font>独立于计算机系统,按用户的观点<br>
+来对数据和信息建模。eg:E-R图</li>
+<li><font color="red"><b>逻辑模型</b></font>主要包括网状模型、层次模型、关系模型等，它是按计算机系统的观点对数据建模.</li>
+</ol>
+<p><strong>4、练习</strong><br>
+1【单选题】<br>
+数据库（DB）、数据库管理系统（DBMS）、数据库系统（DBS）之间的关系是什么（<font color="red"> <b>A </b></font>）</p>
+<p><font color="red"><b>A、<br>
+DBS 包括 DB和 DBMS</b></font></p>
+<p>B、<br>
+DBMS 包括 DB和 DBS</p>
+<p>C、<br>
+DB 包括 DBMS和 DBS</p>
+<p>D、<br>
+DB 与 DBMS与DBS一样</p>
+<p>2【单选题】<br>
+数据库三级模式中，用户与数据库系统的接口是（ <font color="red"><b>B</b></font> ）</p>
+<p>A、<br>
+模式</p>
+<p><font color="red"><b>B、<br>
+外模式</b></font></p>
+<p>C、<br>
+内模式</p>
+<p>D、<br>
+逻辑模式</p>
+<p>3【单选题】<br>
+数据库是长期存储在计算机内、有组织的、统一管理的相关（<font color="red"><b> B</b> </font>）</p>
+<p>A、<br>
+文件的集合</p>
+<p><font color="red"><b>B、<br>
+数据的集合</b></font></p>
+<p>C、<br>
+命令的集合</p>
+<p>D、<br>
+程序的集合</p>
+<p>4<br>
+【单选题】<br>
+使用二维表格结构表达实体及实体间联系的数据模型是（ <font color="red"><b>C</b></font>）</p>
+<p>A、<br>
+层次模型</p>
+<p>B、<br>
+网状模型</p>
+<p><font color="red"><b>C、<br>
+关系模型</b></font></p>
+<p>D、<br>
+联系模型</p>
+<h3 id="center-1-4-sql-server安装与使用-center"><center>1.4 sql server安装与使用 </center></h3>
+<blockquote>
+<p>SQL Server是美国微软公司的旗舰产品，是一种典型的关系型数据库解决方案。<font color="red"><b>Microsoft SQL Server 2012</b></font>是微软发布的新一代数据平台产品，全面支持云技术与平台，并且能够快速构建相应的解决方案实现私有云与公有云之间数据的扩展与应用的迁移。SQL Server 2012是可用于大规模联机事务处理、数据仓库和电子商务应用的数据库和数据分析平台。</p>
+</blockquote>
+<p><strong>一、SQL Server 2012（64位）下载地址：</strong></p>
+<p>链接：<a href="https://pan.baidu.com/s/1mi7Biq12Ps3rbZMUq1w6_Q" target="_blank" rel="noopener">https://pan.baidu.com/s/1mi7Biq12Ps3rbZMUq1w6_Q</a></p>
+<p>提取码：<font color="greng"><b>7k87</b></font></p>
+<p><strong>二、安装教程</strong></p>
+<p>1、安装前准备：检查操作系统类型，请确认你的系统支持 SQL Server 的运行，并确认系统是 32 位的还是 64 位的。</p>
+<p>64位系统安装要求：1.4 GHz或速度更快的处理器，内存最低1GB (建议使用2GB或更大)，7GB可用硬盘空间。</p>
+<p>2、在安装SQL Server2012之前，首先需要安装Windows Installer <a href="http://4.xn--5-se9a.Net" target="_blank" rel="noopener">4.5和.Net</a> Framework3.5以上。如果当前系统中没有安装这些软件，SQL Server2012 安装程序会自动进行安装。</p>
+<h2 id="第二章-创建数据库">第二章 创建数据库</h2>
+<h3 id="center-2-1-数据库文件-center"><center>2.1 数据库文件</center></h3>
+<p><strong>一、SQL Server数据库简介</strong></p>
+<p><strong>1．数据库文件</strong></p>
+<p>SQL Server 2012用文件来存放数据库，即将数据库映射到操作系统文件上。</p>
+<p>SQL Server 2012中的文件通常有两种类型：<font color="red"><b>逻辑文件名</b></font>和<font color="red"><b>物理文件名</b></font>。逻辑文件名是在所有T-SQL语句中引用物理文件时所使用的名称。逻辑文件名必须符合标识符的命令规则，而且数据库中的逻辑文件名必须是唯一的。物理文件名是包括目录路径的物理文件名。它必须符合操作系统的命名规则。逻辑文件名和物理文件名是一一对应的，其对应关系由SQL Server系统来维护。</p>
+<p><strong>2、SQL Server 2012<font color="red">数据库文件有3类：</font></strong></p>
+<p>（1）主<font color="red"><b>数据文件</b></font>（也称主文件）：主数据文件主要用来存储数据库的启动信息、部分或全部数据，是数据库的关键文件。主数据文件是数据库的起点，包含指向数据库中其他文件的指针。每个数据库都有一个主数据库文件。主数据库文件推荐扩展名为<font color="red"><b>.mdf</b></font>。</p>
+<p>（2）<font color="red"><b>次要数据文件</b></font>（也称辅助数据文件）：除主数据文件以外的所有其他数据文件都是次要数据文件。用于存储主数据文件中未存储的剩余数据和数据库对象。一个数据库可以没有，也可以有多个次要数据文件。次要数据文件推荐扩展名为<font color="red"><b> .ndf</b></font>。</p>
+<p>（3）<font color="red"><b>事务日志文件</b></font>（简称日志文件）：存放用来恢复数据库所需的事务日志信息，每个数据库必须有一个或多个日志文件。事务日志文件推荐扩展名为<font color="red"><b>.ldf</b></font>。</p>
+<blockquote>
+<p>3、一般情况下，一个数据库可以只有一个主数据库文件和一个事务日志文件组成，如果数据库很大，则可以设置多个次要数据文件和多个日志文件，并将它们放在不同的磁盘上，以便提高数据存取和处理的效率。</p>
+</blockquote>
+<p><img src="https://p.ananas.chaoxing.com/star3/origin/4c11b926f08940dbd4d80139e9538f90.png" alt=""></p>
+<blockquote>
+<p>4、SQLServer 2012数据库分为：系统数据库、实例数据库和用户数据库。<br>
+<img src="https://p.ananas.chaoxing.com/star3/origin/a7eb72c31429ac5990116fe9ba7706dc.png" alt=""><br>
+<strong>二、作业</strong></p>
+</blockquote>
+<p>1<br>
+【单选题】<br>
+SQL Server安装程序创建4个系统数据库，下列哪个不是（<font color="red"><b> D</b></font> ）</p>
+<p>A、<br>
+model</p>
+<p>B、<br>
+master</p>
+<p>C、<br>
+tempdb</p>
+<p><font color="red"><b>D、<br>
+park </b></font></p>
+<p>2<br>
+【单选题】<br>
+下列哪个不是sql 数据库文件的后缀(<font color="red"><b> C</b> </font>)</p>
+<p>A、<br>
+.mdf</p>
+<p>B、<br>
+.ldf</p>
+<p><font color="red"><b>C、<br>
+.tif</b></font></p>
+<p>D、<br>
+.ndf</p>
+<p>3<br>
+【单选题】<br>
+SQL Server系统中的所有服务器级系统信息存储于哪个数据库( <font color="red"><b>A</b></font> )</p>
+<p><font color="red"><b>A、<br>
+master</b></font></p>
+<p>B、<br>
+model</p>
+<p>C、<br>
+tempdb</p>
+<p>D、<br>
+msdb</p>
+<p>4<br>
+【单选题】<br>
+数据库在磁盘上的基本组织形式是( <font color="red"><b>B</b></font>  )</p>
+<p>A、<br>
+DB</p>
+<p><font color="red"><b>B、<br>
+文件</b></font></p>
+<p>C、<br>
+二维表</p>
+<p>D、<br>
+系统目录</p>
+<h3 id="center-2-2-T-SQL创建数据库-center"><center>2.2 T- SQL创建数据库</center></h3>
+<p>本节重点：T-SQL语句创建、删除数据库。</p>
+<p>本节难点：数据库物理路径的设置。</p>
+<p>本节内容：</p>
+<p><strong>一、 SQL语言</strong></p>
+<p>SQL<font color="red"><b>结构化查询语言</b></font>，是<font color="red"><b>一种数据库查询</b></font>和<font color="red"><b>程序设计语言</b></font>，用于存取数据以及查询、更新和管理关系数据库系统。</p>
+<p>SQL有两种使用方法，一种是<font color="red"><b>交互式SQL</b></font>，用户在联机条件下可直接使用；另一种是<font color="red"><b>嵌入式SQL</b></font>，可作为子语句嵌入到其他程序设计语言中使用，即嵌入到宿主语言中使用。</p>
+<p><strong>二、T-SQL语言</strong></p>
+<p>SQL作为国际标准语言，被大部分数据库系统采用，将其作为数据存取的标准接口，使不同的数据库系统可以相互操作，无论是大型数据库系统还是微机上使用的数据库系统。</p>
+<p>T-SQL语言是Microsoft公司对此标准的一个实现，它同时与多种ANSISQL标准兼容，且还进行了许多扩展。</p>
+<p><strong>三、T-SQL语句创建数据库</strong><br>
+<img src="https://p.ananas.chaoxing.com/star3/origin/22f595a953db22d43d8f67e9078d67f2.png" alt=""><br>
+其中，各参数的含义如下：</p>
+<ul>
+<li><font color="red"><b>数据库名</b></font>：是所创建数据库的逻辑名称。数据库名称在当前服务器中必须唯一且符合标识符的命名规则，最多可以 包含128个字符；</li>
+<li><font color="red"><b>ON</b></font>：用于指定数据文件及文件组属性，具体属性值在&lt;文件定义&gt;中指定；&lt;文件定义&gt;的详细格式如下：</li>
+<li>&lt;文件定&gt;：：<br>
+（NAME=，逻辑文件名’，<br>
+FILENAMES’存放数掘库的物理路径和文件名’<br>
+[<code>,SIZE=数据文件的初始大小</code>]<br>
+[<code>,MAXSIZE=指定文件的最大大小1</code> ]<br>
+[<code>,FILEGROWTH=指定文件每次的增量</code>]）<br>
+<font color="red"><b>LOG ON </b></font>:用于指定事务日志文件的属性。 如果在定义时没有指定ON子句和LON ON 子句，系统将默认设置，自动生成一个主 数据文件和一个事务日志文件，并将文件 存储在系统默认路径上。</li>
+</ul>
+<p><strong>四、使用T-SQL语句修改数据库名称</strong></p>
+<p>命令格式：</p>
+<p><font color="red"><b>ALTER  DATABASE &lt;旧数据库名称&gt;</p>
+<p>Modify  Name=&lt;新数据库名称&gt; </b> </font></p>
+<p><strong>五、使用T-SQL语句删除数据库</strong></p>
+<p>T-SQL中提供的DROP DATABASE 语句可以删除数据库，一次可以删除多个数据库。其语法格式如下：</p>
+<p><font color="red"><b>DROP  DATABASE  database[,…n]</b></font></p>
+<p><strong>六、例题讲解</strong></p>
+<p>例题1：创建一个名为TestSGMS的测试数据库，文件及其他选项均为默认。</p>
+<p><font color="red"><b>【任务分析】</b></font>：由于没有指定数据文件名，默认的情况下，命名主数据文件为TestSGMS.MDF，事务日志文件为TestSGMS_log.LOG，同时由于按复制model数据库的方式来创建新的数据库，主数据文件和事务日志文件的大小都与model数据库的主数据文件和事务日志文件的大小一致，并且可以自由增长。实现本任务的程序为：<br>
+<img src="https://p.ananas.chaoxing.com/star3/origin/cca4d4e71bd716955f420411b5a11b9c.png" alt=""><br>
+例题2：创建一个名为SGMS学生成绩管理系统数据库。要求有2个文件，其中，主数据文件为10MB，最大大小为50MB，每次增长20%；事务日志文件大小为20MB，最大大小为100MB，每次增长10MB。文件存储为D:\db路径下。</p>
+<p><font color="red"><b>【任务分析】</b></font>：要求创建的数据库是SGMS，数据库中有2个文件，分别是主数据文件和事务日志文件，创建时每个文件都要给出逻辑文件和物理文件名称，文件的大小、最大大小、增长方式等详细信息。<br>
+<font color="red"><b>【注意】</b></font>（1）服务器中不能存在同名的数据库名，所以类似CREATE语句均只能正确执行一次，下一次执行时，将提示该对象已存在；<br>
+（2）创建数据库之前，文件存储路径D:\db必须存在。<br>
+<img src="https://p.ananas.chaoxing.com/star3/origin/f0173208fe05c03d4ba398502f100d5c.png" alt=""></p>
+<p>例题3：将博客数据库“BlogDb”改名为“DbOfBlog”：</p>
+<p>ALTER DATABASE BlogDb</p>
+<p>Modify Name=DbOfBlog</p>
+<p>例题4：删除博客数据库“DbOfBlog”</p>
+<p><font color="red"><b> DROP  DATABASE DbOfBlog </b></font></p>
+</br>  
+<p><strong>七、练习</strong></p>
+<p></br>1、下列四项中说法不正确的是（<font color="red"><b> c </b></font> ）</p>
+<p>A、数据库减少了数据冗余</p>
+<p>B、数据库中的数据可以共享</p>
+<p><font color="red"><b>C、数据库避免了一切数据的重复 </b></font></p>
+<p>D、数据库具有较高的数据独立性</p>
+</br>
+2、每个数据库有且只有一个( <font color="red"><b> A  </b></font> )
+<p></br><font color="red"><b>A、主要数据文件	</b></font></p>
+<p>B、次要数据文件</p>
+<p>C、日志文件</p>
+<p>D、索引文件</p>
+</br>
+3、下列选项中可以正确创建数据库的SQL语句是（ <font color="red"><b> A </b></font>  ）
+<p></br><font color="red"><b>A、CREATE DATABASE database_name</b></font></p>
+<p>B、CREATE TABLE database_name（缺少列名）</p>
+<p>C、CREATE VIEW database_name</p>
+<p>D、DATABASE CREATE  database_name</p>
+</br>
+4、数据库恢复的主要依据是(   <font color="red"><b>D</b></font>   )
+<p></br>A、DBA</p>
+<p>B、DB</p>
+<p>C、文档</p>
+<p><font color="red"><b>D、事务日志</b></font></p>
+<h2 id="第三章-创建表">第三章 创建表</h2>
+<h3 id="center-3-1-SSMS数据表-center"><center>3.1 SSMS数据表</center></h3>
+<p><strong>一、数据表的基本概念</strong></p>
+<p>1、表是用来存储数据和操作数据的逻辑结构。表是由行和列组成，最多可以有1024列，每行对应实体集的一个实体，也称为记录，每列代表一个属性，也称为字段。</p>
+<p><img src="https://p.ananas.chaoxing.com/star3/origin/e26337de6a7525a41fdf11b1874efc42.png" alt=""></p>
+<p>2、SQLServer中，表分为系统表和用户表两类。</p>
+<p><strong>1、系统表</strong></p>
+<ul>
+<li>系统表主要记录所有服务器活动的信息。任何用户都不能直接修改系统表。</li>
+</ul>
+<p><strong>2、用户表</strong></p>
+<ul>
+<li>用户表是由用户自定义建立的表，用来存储用户特定的数据，又可分为永久表和临时表两种。</li>
+</ul>
+<p>（1）<font color="red"><b>永久表</b></font></p>
+<ul>
+<li>永久表存储在用户数据库中，如果用户没有删除永久表，永久表及其存储过程将永久存在。</li>
+</ul>
+<p>（2）<font color="red"><b>临时表</b></font></p>
+<ul>
+<li>临时表存储在tempdb数据库中，当不再使用时，系统会自动删除。</li>
+</ul>
+<p><strong>3、定义表结构</strong></p>
+<ul>
+<li>
+<p>确定表的各列的列名及其<font color="red"><b>数据类型、数据长度、是否允许为空</b></font>等。</p>
+</li>
+<li>
+<p>定义表结构时要注意：</p>
+</li>
+</ul>
+<p>（1）允许空：决定某列在表中是否允许为空值。空值是不等于零、空白或零长度的字符串。</p>
+<p>（2）默认值：当在表中插入该列为空值的行时，用此默认值。设置该值能够起到默认输入的作用，减少输入数据的工作量。如设置性别的默认值为“男”。</p>
+<p><strong>二、数据类型</strong></p>
+<p><strong>认识数据类型</strong></p>
+<ul>
+<li>在设计表时，需要知道每列字段的数据类型，每一种数据类型都有自己的定义和特点。SQLServer 2012 系统提供了<font color="red"><b>22种数据类型</b></font>，主要分为<font color="red"><b>精确数据类型</b></font>、<font color="red"><b>近似数字类型</b></font>、<font color="red"><b>字符数据类型</b></font>、<font color="red"><b>日期时间数据类型</b></font>等。</li>
+<li>当为列指定数据类型时，还需要提供<font color="red"><b>长度</b></font>、<font color="red"><b>大小</b></font>，如果是数字数据，还要指定数值的<font color="red"><b>小数位</b></font>等。</li>
+</ul>
+<p><b>1、精确数值类型</b></p>
+<ul>
+<li>数字数据类型可分为精确数字类型和近似数字类型。</li>
+</ul>
+<table>
+	<tr>
+		<td>类别</td>
+		<td>名称</td>
+        <td>长度（字节）</td>
+        <td>说明</td>
+	</tr>
+	<tr>
+		<td rowspan="4">整数类型</td>
+		<td>bigint</td>
+        <td>8</td>
+        <td>整数数据类型中存储量最大的一种，可存储正负数</td>
+	</tr>
+	<tr>
+		<td>int</td>
+        <td>4</td>
+        <td>最常用的数据类型，可存储正负数</td>
+	</tr>
+    <tr>
+		<td>smallint</td>
+        <td>2</td>
+        <td>可存储正负数</td>
+	</tr>
+    <tr>
+		<td>tinyint</td>
+        <td>1</td>
+        <td>存储0~255范围内的所有数据</td>
+	</tr>
+    <tr>
+    <td rowspan="2">货币数据类型</td>
+		<td>money</td>
+        <td>8</td>
+        <td>数据范围为-2<sup>63</sup>~ 2<sup>63</sup>-1,其精度为19,小数为4数据范围为-2<sup>63</sup>~ 2<sup>63</sup>-1,其精度为19,小数为4</td>
+	</tr>
+    <tr>
+		<td>smallmoney</td>
+        <td>4</td>
+        <td>数据范围为-2<sup>31</sup>~ 2<sup>31</sup>-1,其精度为10,小数为4</td>
+	</tr>
+    <tr>
+         <td>位数据类型</td>
+         <td>bit</td>
+         <td>1</td>
+         <td>用于逻辑判断，表示真假、是否等于二值选择</td>
+    </tr>
+</table>    
+</br>
+<b>2、近似数字类型</b>  
+<ul>
+<li>
+<p>在现实计算中，还有一些数据没有精确数值，如2/3是一个无限小数，要通过系统定义精确到哪一位， 这种类型称为近似数字型.</p>
+</li>
+<li>
+<p><font color="red"><b>decimal</b></font>和<font color="red"><b>numeric</b></font>类型</p>
+</li>
+<li>
+<p>两种数据类型都是带固守精度和位数的数据类型，decimal和numeric两种数据类型可以说是等价的。<br>
+使用语法为:<font color="red"><b>decimal(p,s)</b></font>。</p>
+</li>
+<li>
+<p>其中，p(取值范围1 ~ 38)表示数字的精度，s<br>
+(取值范围0 ~p之间的数值)表示数字的小数位数decimal数据类型的取值范围为-10<sup>38</sup>+1至10<sup>38</sup>-1</p>
+</li>
+<li>
+<p><font color="red"><b>float</b></font>和<font color="red"><b>real</b></font>数据类型</p>
+</li>
+<li>
+<p>这两种是<font color="red"><b>浮点数据类型</b></font>，其优点是能够存储范围非常大的数字。</p>
+</li>
+<li>
+<p>float数据类型占用8个字节的存储空间，精度为1S位有效数字。</p>
+</li>
+<li>
+<p>real数据类型使用4个字节，精度为7位有效数字。如果要进行科学计算，并且希望存储更大的数值，但对数据的精度要求并不是绝对严格，可考虑用这两种数据类型。</p>
+</li>
+</ul>
+<p></br><b>3、字符数据类型</b></p>
+<ul>
+<li>字符数据类型是用来存储各种字母、数字符号和特殊符号的。主要有<font color="red"><b>char(n)、varchar(n)、varcha r ( max )text</b></font>这4种数据类型。</li>
+<li><font color="red"><b>char(n)类型</b></font><br>
+每个字符使用<font color="red"><b>一个字节</b></font>的存储空间。char 类型使用固定长度来存储字符，最长可容纳8000个字符。在使用时，必须用<font color="red"><b>双引号或者单引号</b></font>将字符型常量括起来。</li>
+<li><font color="red"><b>varchar(n)类型</b></font><br>
+使用方法与char类似，最长可容纳8000个字符的变长数据字符型数据。不同的地方是，<font color="red"><b>varchar数据类型存储空间随存储的字符数的不同而变化。</li>
+<li>varchar(max) 类型</b></font><br>
+最长可容纳1073741824个字符的变长数据字符型数据。</li>
+<li><font color="red"><b>text类型</b></font><br>
+当要存储的字符型数据非常庞大时，此时应该选择text数据类型。text数据类型专门存储数量庞大的变长字符数据，最大长度可达到2<sup>31</sup>-1个字符(2GB)。<br>
+</br><br>
+<b>4、unicode字符数据类型</b></li>
+<li>unicode是一种在计算机上使用的字符编码。它为每种语言中的每个字符设定了统一并且唯一的二进制编码，以满足于跨语言、跨平台进行文本转换。</li>
+<li>SQL Server 2012中的unicode字符数据类型包括<font color="red"><b>nchar(n)、nvarchar(n )、nvarchar( max )、ntext</b></font>这4种。<br>
+</br><br>
+<b>5、日期时间数据类型</b></li>
+<li>以前的版本使用只包括<font color="red"><b>datetime</b></font>和<font color="red"><b>smalldatetime</b></font>两种日期时间数据类型，区别在于其表示的日期和时间的范围不同，时间精确度不同。<br>
+<font color="red"><b>datetime</b></font> :表示日期从1753年1月1日至、9999年12月31日，时间精确度为3.33毫秒。<br>
+<font color="red"><b>smalldatetime</b></font> :表示日期从1900年1月1日至2079年12月31日，时间精确度为1分<br>
+钟。</li>
+<li>SQL Server 2012增加了<br>
+<font color="red"><b>date、datetime2、time、datetimeoffset</b></font>等日期时间类型，</li>
+<li>date仅存储时间，0001年1月1日到9999年12月31日</li>
+<li>datetime精确到毫秒,time和datetime2精确到100纳秒</li>
+<li>datetimeoffset与 datetime2相同，有一个时区偏移<br>
+</br><br>
+<b>6、二进制数据类型</b></li>
+<li>二进制数据类型包括<font color="red"><b>binary ( n)、varbinary(n)、varbinary(max)image</b></font> 这4种，可用于存储二进制数据。<br>
+binary:用于存储固定长度的二进制数据。<br>
+varbinary: 用于存储可变长度的二进制数据。<br>
+image:用于存储图像信息。<br>
+</br><br>
+<b>7、其他数据类型</b></li>
+<li>cursor :存储对用于数据库操作的指针的引用。</li>
+<li>uniqueidentifier :存储全局标识符</li>
+<li>xml :存储XML格式化数据</li>
+<li>sql_ _variant: 存储最多8000字节不同数据类型的数据，除了text、ntext以及timestamp。</li>
+<li>table :存储结果集。</li>
+</ul>
+<p><b>8、练习</b></p>
+<p>1【单选题】<br>
+以下表示可变长度字符串的数据类型是(   <font color="red"><b>C</b></font>   )</p>
+<p>A、TEXT</p>
+<p>B、CHAR</p>
+<p><font color="red"><b>C、VARCHAR</b></font></p>
+<p>D、EMUM</p>
+<p>2【单选题】<br>
+数据库服务器、数据库和表的关系，正确的说法是(   <font color="red"><b>B</b></font>   )</p>
+<p>A、一个数据库服务器只能管理一个数据库，一个数据库只能包含一个表</p>
+<p><font color="red"><b>B、一个数据库服务器可以管理多个数据库，一个数据库可以包含多个表</b></font></p>
+<p>C、一个数据库服务器只能管理一个数据库，一个数据库可以包含多个表</p>
+<p>D、一个数据库服务器可以管理多个数据库，一个数据库只能包含一个表</p>
+<h3 id="center-3-2-T-SQL创建表-center"><center>3.2 T-SQL创建表</center></h3>
+<p><strong>一、T-SQL创建表</strong></p>
+<p>用T-SQL语句创建表比使用SSMS创建表更加直接、有效。实际的应用系统中，通常用CREATE TABEL语句创建表，其基本语法格式如下：<br>
+<img src="https://p.ananas.chaoxing.com/star3/origin/a5b50bb79819449d6b5f4f313d749b8b.png" alt=""></p>
+<p>上面格式中，包含参数的含义如下：</p>
+<p><strong>表名</strong>：是所创建的表的名称，在一个数据库内表名必须唯一。</p>
+<p><strong>列名</strong>：列名在一个表内列名必须唯一。</p>
+<p>数据类型：可以使用系统数据类型，也可以使用用户定义的数据类型。对于需要给定数据最大长度的类型，在定义时要给出长度。<br>
+<strong>二、使用T-SQL语句显示表信息</strong></p>
+<blockquote>
+<p>exec sp_help 表名<br>
+或sp_help 表名</p>
+</blockquote>
+<p><strong>三、使用T-SQL语句修改表结构</strong><br>
+使用ATLER TABEL语句可以对表结构进行修改，具体包括增加列、删除列以及修改列定义。</p>
+<p>（1）<strong>增加列</strong></p>
+<p>向表中增加列，通过ADD子句实现，其基本语法格式为：</p>
+<blockquote></blockquote>
+<p>ALTER TABLE 表名<br>
+ADD 列名 列的描述<br>
+参数：列的描述中要给出列的数据类型，是否为空。</p>
+<p>（2）<strong>删除列</strong></p>
+<p>对于一张表，要删除表中某列可以用DROP COLUMN子句实现，其基本语法格式如下：</p>
+<blockquote>
+<p>ALTER TABLE表名<br>
+DROP COLUMN列名</p>
+</blockquote>
+<p>（3）<strong>修改列定义</strong></p>
+<p>修改列定义可以用ALTER COLUMN子句实现，其基本语句格式如下：</p>
+<blockquote>
+<p>ALTER TABLE 表名<br>
+ALTER COLUMN 列名 列的描述</p>
+</blockquote>
+<p>（4）<strong>使用T-SQL重命名表名</strong></p>
+<p>其基本语法格式如下：</p>
+<blockquote>
+<p>sp_rename’old_table name’,‘new_table name’</p>
+</blockquote>
+<p><strong>四、使用T-SQL语句删除表</strong></p>
+<p>其基本语法格式如下：</p>
+<blockquote>
+<p>DROP TABLE 表名</p>
+</blockquote>
+<p><strong>一、案例讲解</strong></p>
+<p>例1：用T-sql语句创建students1表</p>
+<pre><code>CREATE TABLE student1
+(sno int NOT NULL,
+sname nvarchar(10) NOT NULL,
+sex char(2),
+birthday smalldatetime)
+</code></pre>
+<p>例2：创建表student2，学号使用标识种子值和增量值采用默认值。</p>
+<pre><code>CREATE TABLE student2
+(sno int identity(2010130101,1),
+sname barchar(10) not null
+)
+</code></pre>
+<p>例3：查看表student的基本信息。</p>
+<pre><code>sp_help student
+</code></pre>
+<p>例4：向student表中增加列Email列。</p>
+<pre><code>ALTER TABLE student
+ADD Email varchar(20) null
+go
+</code></pre>
+<p>例5：删除student表中Email列</p>
+<pre><code>ALTER TABLE student
+DROP COLUMN Email
+Go
+</code></pre>
+<p>例6：将student表中studentName修改为最大长度为60的nvarchar型数据，且不允许为空值。</p>
+<pre><code>ALTER TABLE student
+ALTER COLUMN studentName ncarchar(60) NOT NULL
+go
+</code></pre>
+<p>例7：把表scsc修改表名为sc。</p>
+<pre><code>use SGMS
+GO 
+sp_rename 'scsc','sc'
+</code></pre>
+<p>例8：删除SGMS数据库中的表course表。</p>
+<pre><code>DROP TABLE course
+go
+</code></pre>
+<h3 id="center-3-3-创建约束-center"><center>3.3 创建约束</center></h3>
+<p><strong>一、SQL数据表约束设置</strong></p>
+<p>创建约束和表的创建和修改分不开，可以通过CREATE TABLE 语句在建表的时候添加约束，也可以使用ALTER TABLE 语句来为已经存在的表添加约束。</p>
+<p>约束是一种限制，它通过对表的行或列的数据做出限制，来确保表的数据的完整性、唯一性。</p>
+<p>SQL Server 2012中约束，分别是主键约束（PRIMARY）、外键约束（FOREIGN KEY）、唯一值约束（Unique）、默认值约束（DEFAULT）和检查约束（CHECK）。</p>
+<p><strong>二、主键约束（<font color="red">primary key<br>
+</font>）</strong></p>
+<p>主键约束相当于<font color="red"><b>唯一约束</b></font>+<font color="red"><b>非空约束</b></font>组合，主键约束列<font color="red"><b>不允许重复值</b></font>，也不允许出现<font color="red"><b>空值</b></font>。</p>
+<p>每个表最多只允许<font color="red"><b>一个主键</b></font>，建立主键约束可以在<font color="red"><b>列级</b></font>别创建，也可以在表级别创建。</p>
+<p>当创建主键的约束时，系统默认会在所在的列和列组合上建立对应的</b></font>唯一索引。 一张表应该有主键字段，如果没有，表示该表<font color="red"><b>无效</b></font>。<br>
+<strong>三、外键约束</strong></p>
+<p>若有两个表A、B，id是A的<font color="red"><b>主键</b></font>，而B中也有id字段，则id就是表B的<font color="red"><b>外键</b></font>，外键约束主要用来维护两个表之间数据的一致性。A为基本表，B为信息表。</p>
+<p>一张表可以有多个外键字段（与主键不同）。<br>
+<strong>四、例题讲解</strong></p>
+<p><font color="red"><b>例1：</b></font>定义数据表tb_emp 2，其主键为id，SQL语句如下：</p>
+<pre><code>CREATE TABLE tb_emp2
+(
+id INT(11) PRIMARY KEY,
+name VARCHAR(25),
+DEPTId INT(11),
+salary FLOAT
+)
+</code></pre>
+<p><font color="red"><b>例2：</b></font>定义数据表tb_emp5，并在tb_emp5表上创建外键约束。</p>
+<p>创建一个部门表tb_dept1，SQL语句如下：</p>
+<pre><code>CREATE TABLE tb_dept1
+(
+id int(11) primary key,
+name VARCHAR(22) NOT NULL,
+location VARCHAR(50)
+);
+</code></pre>
+<p>定义数据表tb_emp5，让它的键deptId作为外键关联到tb_dept1的主键id，SQL语句为：</p>
+<pre><code>CREATE TABLE tb_emp5
+(
+id INT(11) PRIMARY KEY,
+name VARCHAR(25),
+deptid INT(11),
+salary FLOAT,
+CONSTRAINT fk_emp_dept1 FOREIGN
+KEY(deptid) REFERENCES tb_dept1(id)
+);
+</code></pre>
+<p>以上语句执行成功之后，在表tb_emp5上添加了名称为fk_emp_dept1的外键约束，外键名称为deptId，其依赖于表tb_dept1的主键id。</p>
+<p><font color="red"><b>例3：更新</b></font>数据表student1，主键为sno，SQL语句如下：</p>
+<pre><code>ALTER TABLE student1
+ADD VCONSTRAINT pa_sno
+PRIMARY KEY (sno)
+</code></pre>
+<p><font color="red"><b>例4：更新</b></font>数据表sc，创建外键，SQL语句如下：</p>
+<pre><code>ALTER TABLE sc
+ADD CONSTRAINT fk_sno
+FOREIGN KEY (SNO)
+REFERENCES student(sno)
+</code></pre>
+<h3 id="center-3-4-约束设置-center"><center>3.4 约束设置</center></h3>
+<p><strong>一、唯一值约束（Unique）</strong></p>
+<p>unique约束的字段，具有唯一性，不可重复，但可以为null。</p>
+<p>同一个表可以有多个唯一约束，多个列组合的约束。</p>
+<p>在创建唯一约束时，如果不给唯一约束名称，就默认和列名相同。</p>
+<p><strong>二、默认值约束（DEFAULT）</strong></p>
+<p>创建table表，ID为非空约束，name 为非空约束且默认值为abc</p>
+<blockquote>
+<p>create table temp(<br>
+id int not null,<br>
+name varchar(255) not null defalt ‘abc’,<br>
+sex char null<br>
+)</p>
+</blockquote>
+<p><strong>三、管理表</strong></p>
+<p><strong>SQL Server提供的约束类型</strong></p>
+<ul>
+<li>
+<p>创建约束始终和表的创建和修改分不开，因为约束是关联在表的某一列或几列的组合上的，所以可以通过CREATE TABLE语句在建表的时候添加约束，也可以使用ALTER TABLE语句来为已经存在的表添加约束。</p>
+</li>
+<li>
+<p>SQL Server 2012中约束，分别是主键约束(PRIMARY)、外键约束( FOREIGN<br>
+KEY)、唯一值约束(Unique)、默认值约束(DEFAULT)和检查约束( CHECK )</p>
+</li>
+</ul>
+<p><strong>四、SQL Server约束机制</strong></p>
+<p><strong>使用T-SQL脚本创建约束</strong></p>
+<p><strong>3.UNIQUE约 束</strong><br>
+创建UNIQUE约束有两种方法:<br>
+(1)使用CREATE TABLE语句在创建表时添加UNIQUE约束</p>
+<ul>
+<li>任务 创建Cour se表时，为cour sename列添加唯一约束 ,不允许课程名重复。</li>
+</ul>
+<pre><code>--创建course表时，为coursename列添加唯一约束  
+CREATE TABLE course
+(courseid char(8) primary key,
+coursename varchar(20) unique,
+coursetypeid char(3), totalperiod tinyint,
+weekperiod tinyint,  credithour tinyint,
+remark varchar(50))
+go
+</code></pre>
+<ul>
+<li><code>[注意]</code> UNIQUE约束在列集内强制执行值的唯一性。对于UNIQUE约束中的列，不允许出项相同的值，这一点与主键约束类似。与主键约束不同的是，在UNIQUE约束的列中允许输入空值，所有空值都是作为相同的值对待的。主键也强制执行唯一性，但主键不允许出现空值。</li>
+</ul>
+<p>(2)使用ALTER TABLE语句向现有表添加UNIQUE约束</p>
+<ul>
+<li>当表已经建立好，可以通过修改表结构命令ALTER TABLE<br>
+来添加唯一约束，其基本语法格式如下。其参数含义与上<br>
+述创建主键约束的参数含义相似。</li>
+</ul>
+<blockquote>
+<p>ALTER TABLE表名<br>
+ADD <code>[CONSTRAINT约束名]</code> UNIQUE (列名)</p>
+</blockquote>
+<ul>
+<li>任务假设表course表已经建立，现在要为cour sename列添加唯一约束，不允许出现相同的课程名。</li>
+</ul>
+<pre><code>ALTER TABLE course
+ADD CONSTRAINT UN_name UNIQUE(coursename)
+GO
+</code></pre>
+<p><strong>使用T-SQL脚本创建约束</strong><br>
+<strong>4、DEFAULT约束</strong></p>
+<ul>
+<li>DEFAULT约束指为表中的<font color="red"><b>列定义默认值</b></font>。当执行数据插入操作而又没有为该列提供数据时，系统将自动以定义的默认值填充该列。</li>
+<li>使用CREATE TABLE语句在创建表时添加DEFAULT约束</li>
+<li>任务7-23创建student表，为sex列添 加DEFAULT,默认值为“男”</li>
+<li>任务分析:创建表时添加默认值约束，只需要指定某列的DEFAULT及默认值就可以了。实现代码如图7-25所示。</li>
+</ul>
+<pre><code>CREATE TABLE student
+(studentID char(10),studentname varchar(10),
+nation char(10), sex char(2) DEFAULT '男'，
+birthday datetime, classid char(7),
+telephone varchar(16), credithour tinyint,
+ru_date char(4), address Varchar(50),
+pwd varchar(16), remark varchar(200))
+go
+</code></pre>
+<p>(2)使用ALTER TABLE语句向现有表添加DEFAULT约束</p>
+<ul>
+<li>如果表已存在，则可以修改表结构时添加DEFAULT约束，<br>
+基本语法格式如下:</li>
+</ul>
+<p><font color="red"><b>ALTER TABLE表名<br>
+ADD CONSTRAINT 约束名<br>
+DEFAULT表达式FOR列名</b></font></p>
+<ul>
+<li>
+<p>任务7-24在SGMS数据库中已经存在的student表，为sex列添加DEFAULT,默认值为“男”。</p>
+</li>
+<li>
+<p>任务分析: student表已经存在，添加DEFAULT约束，可以通过修改表结构实现。实现代码如图7-26所示。</p>
+</li>
+</ul>
+<pre><code>ALTER TABLE student
+ADD CONSTRAINT def_sex DEFAULT'男' for sex
+GO
+</code></pre>
+<p><strong>5、CHECK约束</strong></p>
+<ul>
+<li>向表中输入数据时，CHECK约束可以确保输入数据的<br>
+正确性。创建方法也有两种。</li>
+</ul>
+<p>(1)使用CREATE TABL ,E语句在创建表时添加<br>
+CHECK约束</p>
+<ul>
+<li>任务7-25创建grade表时为grade列添加CHECK约束，<br>
+规定成绩取值范围为[0,100]。</li>
+</ul>
+<pre><code>  CREATE TABLE grade
+(studentID char(10) not null,
+courseID char(8) not null,
+term nvarchar (20)，
+grade tinyint CHECK (grade between 0 and 100))
+GO  
+</code></pre>
+<p>(2)使用ALTERTABLE语句向现有表添加<br>
+CHECK约束，其语法格式如下:</p>
+<pre><code>ALTER TABLE表名
+ADD CONSTRAINT约束名
+CHECK(表达式)
+</code></pre>
+<p><strong>约束的查看和删除</strong><br>
+2、T-SQL .约束的查看<br>
+使用系统存储过程查看约束<br>
+Sp_ helpconstraint 表名</p>
+<pre><code>sp_helpconstraint grade  
+</code></pre>
+<p>3.约束的删除</p>
+<p>约束的删除可以用SSMS来删除约束，也可以<br>
+用DROP CONSTRAINT子句实现，其基本语<br>
+格式如下:</p>
+<pre><code>ALTER TABLE表名
+DROP CONSTRAINT约束名
+</code></pre>
+<ul>
+<li>
+<p>任务7-34删除Class表的PK_ clas约束。</p>
+</li>
+<li>
+<p>实现本任务的代码及执行结果如图7-38所示。</p>
+</li>
+</ul>
+<pre><code>ALTER TABLE class
+DROP CONSTRAINT pk_class
+GO
+</code></pre>
+<p><strong>二、作业：</strong><br>
+1【论述题】<br>
+根据题目中的要求完成下面练习<br>
+1、使用SQL代码将student表中性别的默认值设置为：“男”。</p>
+<pre><code>use students
+go
+alter table student
+add constraint der_sex default'男' for ssex
+go
+</code></pre>
+<p>2、使用SQL代码将sc表中成绩设置约束：0到100。</p>
+<pre><code>use students
+go
+alter table sc
+add constraint ck_grade check(grade&gt;=0 and grade&lt;=100)
+</code></pre>
+<p>3、使用SQL代码将course表中的课程号设置为唯一性。</p>
+<pre><code>use students
+go 
+alter table course
+add constraint un_cname unique(cname)
+</code></pre>
+<p>4、使用SQL代码查看student表中的约束设置。</p>
+<pre><code>use students
+go
+sp_helpconstraint student
+</code></pre>
+<p>5、删除第1题创建的约束。</p>
+<pre><code>use students
+go
+alter table student
+drop constraint def_sex
+</code></pre>
+<h3 id="center-3-5-数据操纵-center"><center>3.5 数据操纵</center></h3>
+<p>一、数据表的插入<br>
+<img src="https://p.ananas.chaoxing.com/star3/origin/475977ec6f86cc21a651a463ef992ed1.png" alt=""><br>
+二、数据库的更新<br>
+<img src="https://p.ananas.chaoxing.com/star3/origin/df847b89034a1b25f11fdda76f6e73f6.png" alt=""><br>
+三、数据库的删除<br>
+<img src="https://p.ananas.chaoxing.com/star3/origin/6ee3605cb2bae2f5a7f51da2adbf63ca.png" alt=""></p>
+<p>四、例题讲解</p>
+<p>例1：向student表中添加一条记录。</p>
+<pre><code>INSERT INTO student(sno,sname,nation,ssex,birthday,sdept,class,tel,id,remark)
+
+VALUES('95009', '欧阳静','汉族','女','2000-01-01','软件','3', '13855676677', '366336200001010234','爱好唱歌');
+
+等同于
+
+INSERT INTO student
+
+VALUES ('95009', '欧阳静', '汉族','女','2000-01-01', '软件', '3', '13855676677','366336200001010234','爱好唱歌');
+</code></pre>
+<p>例2：在程序开发中，一次插入多条数据比逐次一条一条的插入数据，效率高。</p>
+<pre><code>INSERT INTO student(sno,sname,ssex,sdept,class)
+
+VALUES
+
+(' 95011 ', '欧阳一', '女', '软件','3'),
+
+(' 95012 ', '欧阳二', '女','软件','3'),
+
+(' 95013 ', '欧阳三', '女', '软件','3'),
+
+(' 95014 ', '欧阳四', '女', '软件','3'),
+
+('95015 ', '欧阳五', '女', '软件','3')
+</code></pre>
+<p>例3：将student表中学号为‘95002’的学生的专业改为“动漫”。</p>
+<pre><code>UPDATE student  SET   sdept='动漫'
+
+WHERE sno=95002；
+
+例4：删除student表中所有记录，SQL语句如下：
+
+DELETE FROM student;
+</code></pre>
+<p>五、作业</p>
+<p>1、在学生表中增加一条记录：学号为2008，陈刚，男，通信专业。</p>
+<pre><code>use students
+go
+insert into student
+values('2008','陈刚','男','','通信','')
+</code></pre>
+<p>2、将所有课程的学分增加1分。</p>
+<pre><code>use students
+go 
+update course set ccredit=(ccredit+'1')
+</code></pre>
+<p>3、将计算机专业的所有学生的选修课成绩降低5%。</p>
+<pre><code>use students
+go
+update sc set grade=grade*0.95
+where sno=95001
+</code></pre>
+<p>4、删除选修课成绩低于60分的记录。</p>
+<pre><code>use students
+go
+delete from sc
+where grade&lt;60
+</code></pre>
+<h2 id="第四章-sql查询">第四章 sql查询</h2>
+<h3 id="center-4-1-简单查询-center"><center>4.1 简单查询</center></h3>
+<p>一、 SQL语言</p>
+<p>SQL<font color="red"><b>结构化查询语言</b></font>，是一种<font color="red"><b>数据库查询</b></font>和<font color="red"><b>程序设计语言</b></font>，用于存取数据以及查询、更新和管理关系数据库系统。</p>
+<p>SQL有两种使用方法，一种是<font color="red"><b>交互式SQL</b></font>，用户在联机条件下可直接使用；另一种是<font color="red"><b>嵌入式SQL</b></font>，可作为子语句嵌入到其他程序设计语言中使用，即嵌入到宿主语言中使用。<br>
+二、SQL语言简捷，易学易用<br>
+<img src="https://p.ananas.chaoxing.com/star3/origin/9db2019d1e7b443a9bc23c05c2719236.png" alt=""></p>
+<p>三、 SQL查询语句基本格式：</p>
+<pre><code>   SELECT  [DISTINCT] *|{字段名1, 字段名2……}
+
+               FROM表名
+
+  [WHERE条件表达式]
+
+  [GROUPBY 字段名 [HAVING 内部函数表达式]]
+
+  [ORDERBY 字段名 [ASC|DESC]]
+</code></pre>
+<p>四、本章实例采用students数据库，包括三个基本表：</p>
+<p>◆  学生表：</p>
+<p>Student(Sno,Sname,Ssex,Sage,Sdept,class)</p>
+<p>◆  课程表：</p>
+<p>course(cno,cname,cpno,ccredit)</p>
+<p>◆学生选课表：</p>
+<p>SC  (sno,cno,grade)</p>
+<p>五、案例讲解</p>
+<p><strong>查询表中所有列</strong></p>
+<p>例1  查询全体学生的所有信息。</p>
+<pre><code>use students
+go
+select  sno,sname,ssex,sage,sdept,class
+from student
+go
+select *     
+from student
+go
+</code></pre>
+<p><strong>查询表中指定的列</strong></p>
+<p>例2  查询全体学生的姓名和专业。</p>
+<pre><code>select sname,sdept
+from student
+go
+</code></pre>
+<p><strong>查询经过计算的列</strong></p>
+<blockquote>
+<p>SELECT子句中的目标列可以是表中存在的列，也可以是表达式。</p>
+</blockquote>
+<p>例3  查询全体学生的学号，姓名和出生年份。</p>
+<pre><code>select sno,sname,2020-sage
+from student
+go
+
+</code></pre>
+<p><strong>重新命名输出列</strong></p>
+<blockquote>
+<p>通过为指定的列使用别名，来从新命名查询结果列标题。</p>
+</blockquote>
+<p>例3 可改为</p>
+<pre><code>select sno,sname,2020-sage as 出生年份
+from student
+go
+</code></pre>
+<p><strong>查询前几条记录</strong><br>
+例4   查询前3条学生的记录。</p>
+<pre><code>select top 3*
+from student
+go
+</code></pre>
+<p>查询前5条学生的学号和姓名的记录。</p>
+<pre><code>select top 5 sno,sname
+from student
+go 
+</code></pre>
+<p><strong>查询结果放入新表中</strong></p>
+<p>例5  查询所有学生的姓名和性别，查询结果放入newstudent 表中。</p>
+<pre><code>select sname,ssex
+into newstudent
+from student
+</code></pre>
+<h3 id="center-4-2-SQL单表查询-center"><center>4.2 SQL单表查询</center></h3>
+<p>一、单表查询</p>
+<blockquote>
+<p>SELECT  [DISTINCT] *|{字段名1, 字段名2……}<br>
+FROM表名<br>
+[WHERE条件表达式]</p>
+</blockquote>
+<p>二、WHERE子句的查询条件<br>
+<img src="https://p.ananas.chaoxing.com/star3/origin/3f94cbb003afee164cd373ca87d6c513.png" alt=""></p>
+<p>三、案例讲解<br>
+<strong>1、比较大小</strong></p>
+<blockquote>
+<p>例1   检索所有性别为男的学生。<br>
+SELECT*<br>
+FROM Student<br>
+WHERE ssex=‘男’;</p>
+</blockquote>
+<blockquote>
+<p>例2    检索2001年一月一日以后出生的学生的学号姓名和性别及出生年月。<br>
+select sno,sname,ssex,birthday<br>
+from student<br>
+where birthday&gt;=‘2001-01-01’ ;</p>
+</blockquote>
+<p><strong>2、使用BETWEEN查询</strong></p>
+<blockquote>
+<p>例3：查询成绩在75到85之间的学生学号和课程号。<br>
+方法1：<br>
+select sno，cno<br>
+from sc<br>
+where grade <font color="red"><b>between</b></font> 75 <font color="red"><b>and</b></font> 85<br>
+方法2：<br>
+select sno，cno<br>
+from sc<br>
+where grade&gt;=75 and grade&lt;=85</p>
+</blockquote>
+<blockquote>
+<p>例4：查询不在2001-01-01至2001-0101之间出生的学生的学号和姓名。<br>
+select sno,sname,birthday<br>
+from student<br>
+where birthday <font color="red"><b>not between</b></font>’2001-01-01’<br>
+<font color="red"><b>and</b></font>’2002-01-01’;</p>
+</blockquote>
+<blockquote>
+<p>例5：查询年龄不在18至20岁之间的学生学号和姓名。<br>
+方法1：<br>
+select sno,sname<br>
+from student<br>
+where sage not between 18 and 20<br>
+方法2：<br>
+select sno,sname<br>
+from student<br>
+where sage&gt;20 or sage&lt;18</p>
+</blockquote>
+<p><strong>3、使用in查询</strong></p>
+<blockquote>
+<p><font color="red"><b>例6：查询专业为计算机、电子、通信的所有学生信息。</b></font><br>
+方法1：<br>
+select *<br>
+from student<br>
+where sdept in(‘计算机’, ‘电子’, ‘通信’)<br>
+方法2：<br>
+select *<br>
+from student<br>
+where sdept=‘计算机’     or    sdept=‘电子’    or    sdept=‘通信’</p>
+</blockquote>
+<blockquote>
+<p><font color="red"><b>例7：查询专业非计算机、电子、通信的所有学生姓名。</b></font><br>
+select sname<br>
+from student<br>
+where sdept not in(‘计算机’,‘电子’,‘通信’)</p>
+</blockquote>
+<p><strong>使用or查询</strong></p>
+<blockquote>
+<p>例8：查询专业为计算机、电子、通信的所有学生信息。<br>
+select*<br>
+from student<br>
+where sdept='计算机’or sdept=‘电子’<br>
+or sdept=‘通信’;</p>
+</blockquote>
+<p><strong>使用and查询</strong></p>
+<blockquote>
+<p>例9：查询专业为计算机的男学生的信息<br>
+select *<br>
+from student<br>
+where sdept=‘计算机’  and  ssex=‘男’</p>
+</blockquote>
+<p><strong>空值查询</strong></p>
+<blockquote>
+<p>例10：查询没有填写年龄的学生姓名。<br>
+select sname<br>
+from  student<br>
+where sage is null</p>
+</blockquote>
+<p>四、作业<br>
+1、查询年龄在18岁以上学生的学号、姓名和性别。</p>
+<pre><code>select sno,sname,ssex  
+from student  
+where sage&gt;18
+</code></pre>
+<p>2、查询年龄在16至19岁之间的学生学号和姓名。</p>
+<pre><code>select sno,sname  
+from student
+where sage between 16 and 19
+</code></pre>
+<p>3、查询成绩不在60至80之间之间的学生的选课信息。</p>
+<pre><code>select*
+from sc 
+where grade not between 60 and 80
+</code></pre>
+<p>4、查询专业为软件的女学生信息。</p>
+<pre><code>select *
+from student
+where sdep='软件' and ssex='女'
+</code></pre>
+<p>5、查询专业非软件、动漫、电子的所有学生姓名。</p>
+<pre><code>select sname
+from student
+where sdept not in('软件','电子','动漫')
+</code></pre>
+<h3 id="center-4-3-聚合函数查询-center"><center>4.3 聚合函数查询</center></h3>
+<p><strong>一、字符匹配</strong></p>
+<p>_      （下划线）  表示任何一个字符</p>
+<p>%      表示任何多个字符（包括0个）</p>
+<p>[  ]      匹配[ ]中的任意一个字符</p>
+<p>[^ ]    不匹配[  ]中的任意一个字符</p>
+<p><strong>二、聚合函数查询</strong></p>
+<p>COUNT(*) 统计表中元组个数。</p>
+<p>COUNT(属性名) 统计一列中列值的个数。</p>
+<p>SUM 计算一列值的总和（此列必须是数值型）。</p>
+<p>AVG 计算一列值的平均值（此列必须是数值型）。</p>
+<p>MAX 求一列值中的最大值。</p>
+<p>MIN 求一列值中的最小值。</p>
+<p><strong>三、案例讲解</strong></p>
+<p><strong>1、字符匹配</strong></p>
+<p>例1 查询姓名中有“明”字的学生记录。</p>
+<blockquote>
+<p>select*<br>
+from student<br>
+where sname like ‘%明%’</p>
+</blockquote>
+<p>例2 查询学号后面不是2或3的学生的学号及姓名</p>
+<blockquote>
+<p>select sno,sname<br>
+from student<br>
+where sno not like ‘%[2,3]’</p>
+</blockquote>
+<p><strong>2、聚合函数</strong><br>
+例1：查询1号课程的平均分</p>
+<blockquote>
+<p>select avg(grade) from sc<br>
+where cno=1</p>
+</blockquote>
+<p>例2：统计学校共开设了多少门课程。</p>
+<blockquote>
+<p>select count(*)from course<br>
+select count(cno)from course</p>
+</blockquote>
+<p>问题一：count(*)与count(属性名)的区别？</p>
+<blockquote>
+<p>count(*)统计表中元组个数。（包括空值）<br>
+count(属性名)统计一列中列值得个数。（不包括空值）</p>
+</blockquote>
+<p>例3：统计交了学费的学生人数。</p>
+<blockquote>
+<p>select count(学费)<br>
+from student;<br>
+select count(*)<br>
+from student;</p>
+</blockquote>
+<p>查询聚合数据<br>
+例4：查询选修了课程的学生人数。</p>
+<blockquote>
+<p><font color="red"><b>select count(distinct sno)<br>
+from sc; </b></font></p>
+</blockquote>
+<p>注：用<font color="red"><b>distinct</b></font>以避免重复计算学生人数</p>
+<p><strong>四、练习</strong><br>
+1、查询除姓王的同学以外的学生姓名和班级。</p>
+<pre><code>select sname,class  
+from student  
+where sname not like '王%'
+</code></pre>
+<p>2、在student表中添加t1字段，给每行添加t1数据，其中某一列数据中包含30%。</p>
+<pre><code>use students
+go
+update student set t1='21%'
+where sno='95001'
+update student set t1='22%'
+where sno='95002'
+update student set t1='23%'
+where sno='95003'
+update student set t1='24%'
+where sno='95004'
+update student set t1='25%'
+where sno='95005'
+update student set t1='26%'
+where sno='95006'
+update student set t1='27%'
+where sno='95007'
+update student set t1='28%'
+where sno='95008'
+update student set t1='29%'
+where sno='95009'
+update student set t1='30%'
+where sno='95010'
+</code></pre>
+<p>3、查询t1字段中包含字符串“30%”的所有信息。</p>
+<pre><code>select *
+from student
+where t1 like '%30!%' escape'!'
+</code></pre>
+<p>4、查询选修课成绩的最高分、最低分和平均分，（查询的列注意重命名为：最高分、最低分和平均分)。</p>
+<pre><code>select max(grade) as 最高分 from sc
+select min(grade) as 最低分 from sc
+select avg(grade) as 平均分 from sc
+</code></pre>
+<p>5、查询考试成绩有不及格学生的学号。</p>
+<pre><code>select sno
+from sc
+where grade &lt;'60'
+</code></pre>
+<h3 id="center-4-4-分组查询-center"><center>4.4 分组查询</center></h3>
+<p>一、思考题</p>
+<p><font color="red"><b>思考：</b></font>ORDER BY后面可以跟多个字段进行排序吗？<br>
+答：<font color="red"><b>order by 后面可以跟多个字段进行排序<br>
+用A1代替第一个字段，A2代表第二个字段<br>
+1、</b></font>order by ,A2 desc 指得是<font color="red"><b>用A1升序A2降序<br>
+2、</b></font>order by A1 asc, A2 desc 指得是<font color="red"><b>用A1升序A2降序<br>
+3、</b></font>order by A1 desc,A2 desc 指的是<font color="red"><b>用A1降序A2降序</b></font></p>
+<p>二、GROUPBY和HAVING一起使用</p>
+<p>HAVING子句用来指定分组后结果集的筛选条件，它的功能和WHERE子句类似，但它的操作对像是GROUP BY子句指定的已经分组的元组，而WHERE子句的操作对象是FROM子句指定的表。HAVING子句常与GROUP BY子句一起使用。<br>
+一、案例讲解<br>
+1、ORDER BY排序<br>
+例1  查询选修了2课程的学生的学号和成绩，查询结果按成绩降序排序。</p>
+<blockquote>
+<p>SELECT cno,Sno, Grade<br>
+FROM SC<br>
+WHERE Cno=2<br>
+ORDER BY Grade DESC;</p>
+</blockquote>
+<p>2、分组统计<br>
+<strong>使用GROUP BY子句</strong><br>
+(1)单独使用GROUP BY<br>
+例7查询性别分组后的信息。</p>
+<blockquote>
+<p>SELECT * FROM student GROUP BY ssex;</p>
+</blockquote>
+<p><font color="red"><b>[注意] </b></font>:查询结果进行比较，GROUP BY关键字只显示<br>
+每个分组的一条记录。这说明，GROUP BY关键字单独使用<br>
+时，只能查询出每个分组的一条记录，这样做的意义不大。<br>
+因此，一般在使用<font color="red"><b>聚合函数时才使用GROUP BY关键字</b></font>。</p>
+<p>(2) GROUP BY和聚合函数一起使用<br>
+例8查询各门课程的选修人数。</p>
+<blockquote>
+<p>SELECT Cno,COUNT(*) FROM SC<br>
+GROUP BY Cno</p>
+</blockquote>
+<p>例9:统计男女生各有多少人。<br>
+count():  统计</p>
+<blockquote>
+<p>select ssex,count(ssex) as人数<br>
+from student<br>
+Group by ssex</p>
+</blockquote>
+<p>例10：求各学生的总分。<br>
+<font color="red"><b>Sum():求和</b></font><br>
+select sno,sum(grade)as总分<br>
+from Sc<br>
+Group by sno</p>
+<p>(3) GROUP BY和HAVING一 起使用<br>
+<font color="red"><b>HAVING子句</b></font>用来指定分组后结果集的筛  选条件，它的功能和WHERE子句类似，但它的操作对像是GROUP BY子句指定的已经分组的元组，而WHERE子句的操作对象是FROM子句指定的表。HAVING子句常与GROUPBY子句一起使用。</p>
+<p>例11求选课在2门以上的学生，并统计平均成绩。</p>
+<blockquote>
+<p>SELECT Sno, AVG (Grade) as Average<br>
+FROM SC<br>
+GROUP BY Sno<br>
+HAVING COUNT (*) &gt;=2</p>
+</blockquote>
+<p><font color="red"><b>思考:</b></font><br>
+将学生的性别进行分组查询，显示记录数大于等于4的分组。</p>
+<blockquote>
+<p>SELECT ssex, COUNT (ssex)<br>
+FROM student<br>
+GROUP BY<br>
+ssex<br>
+HAV ING COUNT (ssex)&gt;=4;</p>
+</blockquote>
+<p>例12求选课在2门门以上并且成绩及格的学生，并统计平均成绩。</p>
+<blockquote>
+<p>SELECT Sno,AVG(Grade) as<br>
+Average<br>
+FROM SC<br>
+GROUP BY Sno HAVING<br>
+COUNT(*)&gt;=2 and MIN(grade)&gt;=60</p>
+</blockquote>
+<p>二、课堂练习</p>
+<p>1、查询女学生的姓名、专业名，结果按姓名升序排序，专业名降序。<br>
+2、查询出所有学生的学号及所选课程的门数，按门数降序排列。<br>
+3、查询出每个专业的学生人数。<br>
+4、查询专业人数多于1人的专业名称及人数。<br>
+5、查询2号课程的成绩在前3名学生的学号 。</p>
+<h3 id="center-4-5-多表查询-center"><center>4.5 多表查询</center></h3>
+<p>一、多表查询<br>
+在数据库应用中，经常需要从多个相关的表中查询数据，这就需要进行表连接。<br>
+1、使用内部连接<br>
+内部连接也叫自然连接，是将两个表中的列进行比较，将两个表中满足连接条件的行组合起来作为结果，它是最常见的表连接形式。<br>
+内部连接有以下两种语法形式：<br>
+<img src="https://p.ananas.chaoxing.com/star3/origin/8ceb504f4239babf482ccd5bc8120667.png" alt=""><br>
+2、自身连接<br>
+连接操作不仅可以在两个表之间进行，也可以是一个表与其自己进行连接，称为表的自身连接。<br>
+3、复合条件连接<br>
+WHERE子句中含多个连接条件时，称为复合条件连接</p>
+<p>4、以JOIN关键字指定的连接</p>
+<p>从多个表合并数据，并涉及多个表之间的连接。多表间的连接方式可分为内连接、外连接。被连接的表可以来自同一数据库，也可以来自不同的数据库。</p>
+<p>（1）内连接<br>
+格式：SELECT  列名  FROM  &lt;数据源&gt;  JOIN  &lt;数据源&gt;  ON  连表条件<br>
+（2）外连接<br>
+一、案例讲解</p>
+<p>例1  查询每个学生及其选修课程的情况。</p>
+<p><img src="https://p.ananas.chaoxing.com/star3/origin/69b4475c0c87e6c92b28033e312c379a.png" alt=""></p>
+<p>例2 查询所有学生的学号、姓名及成绩。<br>
+<img src="https://p.ananas.chaoxing.com/star3/origin/d39379e1fb89753c07e8f8997b700278.png" alt=""></p>
+<p>例3 查询所有比“刘晨”大的学生的姓名和年龄。</p>
+<p><img src="https://p.ananas.chaoxing.com/star3/origin/7d8472a627fa80b48d03f0042fd04372.png" alt=""></p>
+<p>例4 查询选修2号课程且成绩在80分以上的所有学生的学号、姓名。</p>
+<p><img src="https://p.ananas.chaoxing.com/star3/origin/205126700097aa7fd6f7b523ceafa016.png" alt=""></p>
+<p>三、复合条件连接<br>
+●<br>
+例五:查询2号课程的成绩在前3名学生的姓名。</p>
+<blockquote>
+<p>select top 3 sname as 前3名学生<br>
+from student,sc<br>
+where Student.Sno= = SC.Sno<br>
+And sc.cno= 2<br>
+ORDER BY sc,Grade DESC</p>
+</blockquote>
+<p>四、多表连接<br>
+例六:查询每 个学生的学号、姓名、选修的课程名<br>
+及成绩。</p>
+<blockquote>
+<p><font color="greng"><b>SELECT</b></font> Student.Sno， Sname， Cname,<br>
+Grade<br>
+<font color="greng"><b>FROM</b></font><br>
+Student, SC，Course<br>
+<font color="greng"><b>WHERE</b></font> Student.Sno = SC.Sno<br>
+<font color="greng"><b>AND</b></font> SC .Cno = Course.Cno;</p>
+</blockquote>
+<p>五、以JOIN关键字指定的连接<br>
+例七:在学生数据库中，查询学生学号、姓名、成绩。</p>
+<blockquote>
+<p><font color="red"><b>SELECT</b></font> student.sno, sname, grade<br>
+<font color="red"><b>FROM</b></font> student <font color="red"><b>JOIN</b></font> sc<br>
+<font color="red"><b>ON</b></font> student.sno=sc.sno<br>
+<font color="red"><b>或</b></font>给使用的表取<font color="red"><b>别名</b></font><br>
+<font color="red"><b>SELECT</b></font> x.sno,sname,grade<br>
+<font color="red"><b>FROM</b></font> student x <font color="red"><b>JOIN</b></font> sc y<br>
+<font color="red"><b>ON</b></font> x.sno=y.sno</p>
+</blockquote>
+<ul>
+<li>此命令等价于利用WHERE子句进行连表查询。</li>
+</ul>
+<blockquote>
+<p><font color="greng"><b>SELECT</b></font> Student.Sno, Sname, grade<br>
+<font color="greng"><b>FROM</b></font><br>
+Student, SC<br>
+<font color="greng"><b>WHERE</b></font> Student.Sno = SC.Sno<br>
+多表内连接?</p>
+</blockquote>
+<p>例八:使用join连接查询每个学生的学号、姓名、选修的课程名及成绩。<br>
+<font color="greng"><b>例题六答案: </b></font></p>
+<blockquote>
+<p>SEL ECT Student.Sno,Sname,Cname,Grade<br>
+FROM<br>
+Student,SC ,Course<br>
+WHERE Student.Sno = SC.Sno<br>
+AND SC.Cno = Course.Cno<br>
+<font color="red"><b>join内连接? </b></font></p>
+</blockquote>
+<p>格式: <font color="red"><b>SELECT列名</b></font><br>
+<font color="red"><b>FROM (表1 JOIN表2 ON表1.字段名=表2.字段名)<br>
+JOIN表3 ON表1.字段名=表3.字段名</b></font><br>
+例八:<br>
+查询每个学生的学号、姓名、选修的课程名及成绩。<br>
+<font color="red"><b>内连接:</b></font></p>
+<blockquote>
+<p><font color="greng"><b>SELECT</b></font> Student.Sno,Sname,Cname,Grade<br>
+<font color="greng"><b>FROM</b></font><br>
+(Student join SC on Student.Sno = SC.Sno)<br>
+join Course On SC .Cno = Course.Cno</p>
+</blockquote>
+<p>[操作演示]<br>
+例题九:显示所有学生的学号、姓名、考试的成绩(使用左连接的方法)。</p>
+<blockquote>
+<p><font color="red"><b>SELECT x.sno,sname,grade<br>
+FROM student X left outer JOIN SC y<br>
+ON x.sno=y.sno</b></font></p>
+</blockquote>
+<p>例题十:显示所有学生的<br>
+姓名、性别、考试的成绩<br>
+(使用右连接的方法)。</p>
+<blockquote>
+<p><font color="red"><b>SELECT x.sno,sname,grade<br>
+FROM student X right outer JOIN SC y<br>
+ON x.sno=y.sno</b></font></p>
+</blockquote>
+<p>例题十一:显示所有学<br>
+生的姓名、性别、考试<br>
+的成绩(使用全连接的<br>
+方法)。</p>
+<blockquote>
+<p><font color="red"><b>SEL .ECT x.sno,sname,grade<br>
+FROM student X full outer JOIN SC y<br>
+ON x.sno=y.sno</b></font></p>
+</blockquote>
+<p>二、课堂练习<br>
+1、用普通的内连接查询选修2号课程且成绩在90分以上的所有学生的学号、姓名。</p>
+<p>2、用自身连接查询所有比“张立”小的学生的姓名和年龄。</p>
+<p>3、查询1号课程的成绩在前2名学生的姓名。</p>
+<p>4、查询选修课成绩及格的学生姓名、课程名及成绩。</p>
+<p>5、统计男女同学选修课的平均分和最高分。</p>
+<p>6、用join内连接查询电子专业男生的学号、姓名、课程名及成绩。</p>
+<p>7、用外连接查询所有学生的选课情况，包括没有选课的情况。</p>
+<h3 id="center-4-6-嵌套查询-center"><center>4.6 嵌套查询</center></h3>
+<p>一、联合查询</p>
+<p>1、UNION运算符</p>
+<p>把多个SELECT语句返回的结果集组合到一个结果集。<br>
+<img src="https://p.ananas.chaoxing.com/star3/origin/b8fd78d772ca8c82abd09254234e4959.png" alt=""></p>
+<p>2、使用UNION运算符的注意事项<br>
+<img src="https://p.ananas.chaoxing.com/star3/origin/7bccbd393ac659d071dce75e9d7b2979.png" alt=""></p>
+<p>二、嵌套查询概述</p>
+<p>一个SELECT-FROM-WHERE语句称为一个查询块。</p>
+<p>将一个查询块嵌套在另一个查询块的WHERE子句或HAVING短语的条件中的查询称为嵌套查询。</p>
+<p>三、引出子嵌套查询的谓词</p>
+<p>1、带有IN谓词的子查询</p>
+<p>2、带有比较运算符的子查询</p>
+<p>3、带有ANY或ALL谓词的子查询</p>
+<p>4、带有EXISTS谓词的子查询</p>
+<p>一、案例讲解</p>
+<p>例一：查询选修了2号课程的学生姓名。<br>
+<img src="https://p.ananas.chaoxing.com/star3/origin/3b89dd249cabd8577ec9ff20e31bd1d6.png" alt=""></p>
+<p>使用嵌套查询：<br>
+<img src="https://p.ananas.chaoxing.com/star3/origin/b54eaa855d1dc14cb478e4d5515dc125.png" alt=""></p>
+<p>例二：查询与“刘晨”在同一个专业学习的学生的学号，姓名。<br>
+<img src="https://p.ananas.chaoxing.com/star3/origin/07f389fa2b6ff316e1febffd4de32608.png" alt=""></p>
+<p>例三：查询选修了课程名为“信息系统”的学生学号和姓名。<br>
+<img src="https://p.ananas.chaoxing.com/star3/origin/38959ac6e7150aad138f5ca7dc718016.png" alt=""></p>
+<p>例四：使用比较运算符查询与“刘晨”在同一个专业学习的学生姓名。</p>
+<p><img src="https://p.ananas.chaoxing.com/star3/origin/1a834b26ff0568a75152bcf9e0c53ea1.png" alt=""></p>
+<p>二、联合查询<br>
+4、联合查询<br>
+<font color="red"><b>准备工作: </b></font><br>
+(1) 创建教师表:</p>
+<blockquote>
+<p>CREATE TABLE teacher (<br>
+tno int (10) PR IMARY KEY,<br>
+tname varchar (10) NOT NULL) ;</p>
+</blockquote>
+<p>(2) 插入数据:</p>
+<blockquote>
+<p>Insert teacher<br>
+VALUES (’ 2001001’,‘曹晨’),<br>
+(’ 2016022’, ‘黄欢欢’) ;</p>
+</blockquote>
+<p><font color="red"><b>例十一:查询学校所有师生的信息。</b></font></p>
+<blockquote>
+<p>select sno,sname<br>
+from student<br>
+union<br>
+select tno,tname<br>
+from teacher</p>
+</blockquote>
+<p>师生的信息改列名，<br>
+否则显示union前<br>
+面表的列名。</p>
+<blockquote>
+<p>select sno编号,sname 姓名<br>
+from student<br>
+union<br>
+select tno,tname<br>
+from teacher</p>
+</blockquote>
+<p>三、课堂练习</p>
+<p>1、使用UNION联合查询查询学校所有师生的信息。（在数据库中创建“teacher表”,字段有tno,tname,ssex。数据类型参考student表。“teacher表”数据自由添加5行）。</p>
+<pre><code>use students
+go
+]create table teacher
+(tno int primary key,
+tname varchar(10) not nu11,
+ssez varchar(10) not NULL) ;
+linsert teacher
+values(' 2001001’，'曹晨’，’男’),
+(' 2016022&quot; ,'黄欢欢’，’女');
+select sno编号, sname as姓名,ssex as性别
+from student
+union
+select tno, tname, ssex .
+from teacher  
+</code></pre>
+<p>2、用嵌套查询所有比“王敏”大的学生的姓名和年龄。</p>
+<pre><code>lselect sname姓名，sage as年龄
+from student
+where sage &gt; al1(se1ect sage from student where sname=' 王敏’)
+</code></pre>
+<p>3、用嵌套查询选修了3号课程的学生姓名。</p>
+<pre><code>select sname姓名
+from student where sno in (select sno from sc where cno=3) ;
+</code></pre>
+<p>4、用嵌套查询选修了课程名为“数学”的学生学号和姓名。</p>
+<pre><code>select sno学号, sname as姓名
+from student where sno in (se1ect sno from sc where cno in (
+select cno from course where sdept=' 数学’))
+</code></pre>
+<p>5、用嵌套查询王明同学选修了的课程名。</p>
+<pre><code>lselect cname课程名
+from course where cno in (select cno from sc where sno in (
+select sno from student where sname=' 王明’))
+</code></pre>
+<h3 id="center-4-7-子查询-center"><center>4.7  子查询</center></h3>
+<p>一、带有ANY或ALL谓词的子查询</p>
+<p>ANY和ALL谓词有时可以用聚合函数实现–ANY与ALL与聚合函数的对应关系<br>
+<img src="https://p.ananas.chaoxing.com/star3/origin/f21022f7d9f14a0ce1e7d36d9730b476.png" alt=""></p>
+<p>二、带有EXISTS谓词的子查询</p>
+<p>带有EXISTS谓词的子查询不返回任何数据，只产生逻辑真值“true”或逻辑假值“false”。</p>
+<p>由EXISTS引出的子查询，其目标列表达式通常都用* ，因为带EXISTS的子查询只返回真值或假值，给出列名无实际意义。<br>
+一、案例讲解</p>
+<p>例1：查询其他专业中比计算机系任意一个(其中某一个)学生年龄小的学生姓名和年龄。</p>
+<p><img src="https://p.ananas.chaoxing.com/star3/origin/2673f1d217d54cbaabff623ac4a5368b.png" alt=""></p>
+<p>例2：用聚合函数实现[例1]查询其他专业中比计算机专业任意一个(其中某一个)学生年龄小的学生姓名和年龄。</p>
+<p><img src="https://p.ananas.chaoxing.com/star3/origin/ac57cc35cd18983ca3a851d3b9b6e374.png" alt=""></p>
+<p>例3：查询其他专业中比电子专业所有学生年龄都小的学生姓名及年龄。<br>
+<img src="https://p.ananas.chaoxing.com/star3/origin/a1db75953cfec9f4c2ff756f871e936c.png" alt=""></p>
+<p><img src="https://p.ananas.chaoxing.com/star3/origin/57c1efe8eec07d7b8612b3b80805d9c9.png" alt=""></p>
+<p>例4：使用EXISTS谓词查询所有选修了1号课程的学生姓名。</p>
+<p><img src="https://p.ananas.chaoxing.com/star3/origin/6df076c5e80fd26fc074a6edb4d88491.png" alt=""></p>
+<p>例5：使用NOT EXISTS谓词查询没有选修1号课程的学生姓名。</p>
+<p><img src="https://p.ananas.chaoxing.com/star3/origin/729dabcf3cf5e103ae95b6770fa0c64e.png" alt=""></p>
+<p>例6：使用EXISTS谓词查询与“王明”在同一个专业学习的学生姓名。</p>
+<p><img src="https://p.ananas.chaoxing.com/star3/origin/ae678b3221c8d280b1f93de899d92ca9.png" alt=""></p>
+<p>二、课堂练习<br>
+1、用嵌套查询查询其他系中比电子系任意一个学生年龄小的学生姓名和年龄。</p>
+<pre><code>use students
+go
+select sname, sage
+from student
+where sage&lt;(
+select max(sage) from student where sdept=' 电子’)
+and sdept&lt;&gt;' 电子’
+</code></pre>
+<p>2、用嵌套查询其他专业中比软件专业所有学生年龄都小的学生姓名及专业。</p>
+<pre><code>select sname, sdept
+from student
+where sage&lt;(
+select min(sage) from student where sdept=' 软件’)
+and sdept&lt;&gt;' 软件’
+</code></pre>
+<p>3、用not EXISTS嵌套查询没有选修任何课程的学生姓名。</p>
+<pre><code>select sname from student where not exists (
+select * from sC where student. sno=sc. sno)
+</code></pre>
+<p>4、统计各门课程的最高分与最低分相差12分以上的课程名。</p>
+<pre><code>select cname
+from course
+where cno in (select cno from SC group by cno
+having max (grade) -min (grade)&gt;=12)
+</code></pre>
+<p>5、查询至少被选修了二次的课程号及课程名称。</p>
+<pre><code>select cno, cname
+from course where cno in(
+se1ect cno from sc group by cno having count(*)&gt;=2)
+</code></pre>
+<h2 id="第五章-索引和视图">第五章 索引和视图</h2>
+<h3 id="center-5-1-索引-center"><center>5.1 索引</center></h3>
+<p>一、索引的概念</p>
+<p>如果把数据库看作一本书，那么书的目录就是人们所说的索引，索引是基本表的目录。索引是一个单独的、物理的数据结构，它与目录一样，也是单独存在的，但索引的建立是依赖于表建立的，它提供了在数据库中编排表中数据的内部方法。</p>
+<p>二、索引的作用</p>
+<p>1、加快数据检索速度。</p>
+<p>2、加快表与表之间的连接速度。</p>
+<p>3、 在使用ORDER BY和GROUP BY子句进行检索时，可以显著地减少查询中分组和排序的时间。</p>
+<p>4、 保证数据记录的唯一性。唯一性索引的创建可以保证表中的数据记录不重复。</p>
+<p>三、索引的类型</p>
+<p>1、唯一索引（特殊类型：主键索引）</p>
+<p>2、单列索引</p>
+<p>3、复合索引</p>
+<p>四、根据索引的顺序与数据表的物理顺序是否相同，索引可分两种类型：一是聚集索引；二是非聚集索引。</p>
+<p>五、索引使用</p>
+<p>1、考虑创建索引的列</p>
+<p>（1）主键列上（默认创建一个聚集索引）；</p>
+<p>（2）经常用在连接的列上；</p>
+<p>（3）经常需要进行范围查询的列上；</p>
+<p>（4）经常需要排序的列上。</p>
+<p>2、不考虑创建索引的列</p>
+<p>（1）很少或从来不在查询中引用的列。</p>
+<p>（2）选择性低（重复值多）的列；</p>
+<p>（3）小表（记录数很少的表）一般也不必创建索引；</p>
+<p>（4）更新操作比较频繁的列上不适合创建索引。</p>
+<p>六、使用T-SQL语句创建索引的语法<br>
+<img src="https://p.ananas.chaoxing.com/star3/origin/0faaa1d0d89d0f96eb9a7b679f4c1f66.png" alt=""></p>
+<p>Unique选项表示索引的列必须唯一</p>
+<p>Clustered表示索引为聚集索引</p>
+<p>NonClustered表示索引为非聚集索引，默认</p>
+<p>一、案例讲解<br>
+1、在学生表的学号列上创建聚集索引。</p>
+<p><img src="https://p.ananas.chaoxing.com/star3/origin/8f3284def0307257bc6523a7b00c5a27.png" alt=""></p>
+<p>2、在学生表的姓名列上创建唯一的非聚集索引。</p>
+<p><img src="https://p.ananas.chaoxing.com/star3/origin/b895fc883727b659346c3ee41dc93dd6.png" alt=""></p>
+<p>3、在学生成绩表的学生编号列和课程编号列上创建组合的聚集索引。</p>
+<p><img src="https://p.ananas.chaoxing.com/star3/origin/07e9a6d96302fde349208e2b754762e4.png" alt=""></p>
+<p>4、删除学生表姓名列上的索引。<br>
+<img src="https://p.ananas.chaoxing.com/star3/origin/453010792f726572b4a473093302b9b9.png" alt=""></p>
+<p>二、课堂练习</p>
+<p>1、UNIQUE惟一索引的作用是(  <font color="red"><b>A</b></font>    )</p>
+<p><font color="red"><b>A、<br>
+保证各行在该索引上的值都不得重复</b></font></p>
+<p>B、<br>
+保证各行在该索引上的值不得为NULL</p>
+<p>C、<br>
+保证参加惟一索引的各列，不得再参加其他的索引</p>
+<p>D、<br>
+保证惟一索引不能被删除</p>
+<p>2、为数据表创建索引的目的是(  <font color="red"><b> A</b></font>    )</p>
+<p><font color="red"><b>A、<br>
+提高查询的检索性能</b></font></p>
+<p>B、<br>
+归类</p>
+<p>C、<br>
+创建唯一索引</p>
+<p>D、<br>
+创建主键</p>
+<h3 id="center-5-1-视图-center"><center>5.1 视图</center></h3>
+<p>一、视图的概念</p>
+<p>视图是由一个或多个数据表或视图导出的<font color="red"><b>虚拟表</b></font>或<font color="red"><b>查询表</b></font>。</p>
+<p>二、视图的优点</p>
+<p>1、简化查询语句</p>
+<p>日常开发中我们可以将经常使用的查询定义为视图，从而使用户避免大量重复的操作。</p>
+<p>2、安全性</p>
+<p>通过视图用户只能查询和修改他们所能见到的数据，数据库中的其他数据则既看不到也取不到。</p>
+<p>3、逻辑数据独立性</p>
+<p>视图可以帮助用户屏蔽真实表结构变化带来的影响。<br>
+一、案例讲解</p>
+<p>例1  创建女同学的视图（girl_view），包括学号、姓名、性别和专业等信息。</p>
+<p><img src="https://p.ananas.chaoxing.com/star3/origin/829859a55a830857d2a44f6a3346cfe2.png" alt=""></p>
+<p>例2 修改例1创建的“girl _VIEW”视图的定义信息，将其改为显示所有计算机专业的女生信息。</p>
+<p><img src="https://p.ananas.chaoxing.com/star3/origin/87dad60a614cef219934bb8fccc8e0aa.png" alt=""></p>
+<p>例3 查看“girl _VIEW”视图的字段信息。</p>
+<p><font color="red"><b>DESC  girl_view</b></font></p>
+<p>例4 查看“girl _VIEW”视图的定义信息。</p>
+<p><img src="https://p.ananas.chaoxing.com/star3/origin/90bb10e0cf28c56f007fdb3737f5b7f4.png" alt=""></p>
+<p>例5   删除“girl _VIEW”视图</p>
+<p>DROP VIEW girl_view<br>
+二、作业<br>
+1、在student表的姓名列上创建唯一的非聚集索引。</p>
+<pre><code>lcreate unique nonclustered index
+ix_ sname
+on student (sname)
+</code></pre>
+<p>2、查看学生表.上的索引信息。</p>
+<pre><code>sp_ helpindex student
+</code></pre>
+<p>3、 删除学生表姓名列上的索引。</p>
+<pre><code>drop index student. 1x_ sname
+</code></pre>
+<p>4、创建女同学的视图(gir1_ _view)，包括学号、姓名、性别和专业等信息。</p>
+<pre><code>CREATE VIEW 8ix1 xiew as
+select sno, sname, ssex, sdept
+from student
+_where ssex=' 女
+</code></pre>
+<p>5、修改任务4创建的“gir1_ _view”视图的定义信息，将其改为显示所有电子专业的女生信息。</p>
+<pre><code>atexn yieusishwie
+as
+select sno, sname, ssex, sdept
+from student
+where ssex=' 女’and sdept=' 电子'
+</code></pre>
+<p>6、使用系统存储过程SP_ RENAME将视图“GIRL_ <em>VIEW&quot;改为“VIEW</em> _GIRL”。</p>
+<pre><code>sD_ xensme gir1_ view, v1ew_ gir1
+</code></pre>
+<p>7、查询视图VIEW_ _GIRL的所有信息。</p>
+<pre><code>select * from VIEW GIRL
+</code></pre>
+
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://liufeng6666.github.io" rel="external nofollow noreferrer">興仰</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://liufeng6666.github.io/2020/04/25/sql%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86%E4%B8%8E%E8%AE%BE%E8%AE%A1/">https://liufeng6666.github.io/2020/04/25/sql%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86%E4%B8%8E%E8%AE%BE%E8%AE%A1/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="https://liufeng6666.github.io" target="_blank">興仰</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/sql/">
+                                    <span class="chip bg-color">sql</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2020/05/11/c%E8%AF%AD%E8%A8%80%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="c语言程序设计">
+                        
+                        <span class="card-title">c语言程序设计</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            简单的c语言程序介绍
+#include&lt;stdio.h&gt;                                                          /文件包含/
+void main()          
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-05-11
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/C%E8%AF%AD%E8%A8%80/" class="post-category">
+                                    C语言
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/C%E8%AF%AD%E8%A8%80/">
+                        <span class="chip bg-color">C语言</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2020/04/23/C%E8%AF%AD%E8%A8%80%E7%9F%A5%E8%AF%86%E7%82%B9/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="C语言知识点">
+                        
+                        <span class="card-title">C语言知识点</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            C语言知识点
+总体上必须清楚的:
+
+(1)程序结构是三种:  顺序结构 、选择结构(分支结构)、循环结构。
+(2)读程序都要从main()入口, 然后从最上面顺序往下读(碰到循环做循环,碰到选择做选择)，有且只有一个main函数。
+(3)计
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-23
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/C%E8%AF%AD%E8%A8%80/" class="post-category">
+                                    C语言
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/C%E8%AF%AD%E8%A8%80/">
+                        <span class="chip bg-color">C语言</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+<style type="text/css">
+code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
+</style>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="399111177"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            <span id="year">2020</span>
+            <a href="https://liufeng6666.github.io" target="_blank">興仰</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:1948920683@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1948920683" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1948920683" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/search.xml", 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+    
+    <!--动态线条背景-->
+<script type="text/javascript"
+color="122 103 238" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js">
+</script>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/z16.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true,"react":{"opacity":0.7}}});</script></body>
+
+</html>
